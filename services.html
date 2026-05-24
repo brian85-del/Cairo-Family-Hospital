@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the full range of medical services at Cairo Family Hospital Ruiru Ltd — from general care to maternity, diagnostics, specialist clinics, inpatient care, and our dedicated medical team.">
+    <meta name="keywords"
+        content="Cairo Family Hospital, medical services, Ruiru, Kenya, clinic, healthcare, pharmacy, maternity, emergency, diagnostic, specialist, inpatient, outpatient">
+    <title>Cairo Family Hospital - Our Services</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="wrap">
+            <div class="topbar-left">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Thome Road, Ruiru, Kiambu County</a>
+                <a href="tel:+254758833863"><i class="fas fa-phone"></i> +254 758 833 863</a>
+                <a href="mailto:info@cairofamilyhospital.co.ke"><i class="fas fa-envelope"></i>
+                    info@cairofamilyhospital.co.ke</a>
+            </div>
+            <div class="topbar-right">
+                <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank"
+                    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="logo-text">
+                    <strong>Cairo Family Hospital</strong>
+                    <span>Ruiru Ltd — Kiambu County</span>
+                </div>
+            </a>
+            <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="pharmacy.html">Pharmacy</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+                    target="_blank" class="btn-appt">
+                    <i class="fab fa-whatsapp"></i> Book Appointment
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="section-tag">Our Services</div>
+            <h1>Comprehensive Care for Every Family</h1>
+            <p>As a licensed Level 3B facility, Cairo Family Hospital Ruiru Ltd offers integrated medical services —
+                from preventive check-ups to inpatient care, diagnostics, and specialist consultations — all delivered
+                with compassion and professionalism.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span style="color:rgba(255,255,255,0.88);">Services</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK SERVICE FINDER -->
+    <div class="finder">
+        <div class="finder-inner">
+            <h3>Find a Service:</h3>
+            <div class="finder-chips">
+                <div class="chip sel" onclick="selectChip(this)">General Medicine</div>
+                <div class="chip" onclick="selectChip(this)">Pediatrics</div>
+                <div class="chip" onclick="selectChip(this)">Maternity Care</div>
+                <div class="chip" onclick="selectChip(this)">Emergency Care</div>
+                <div class="chip" onclick="selectChip(this)">Dental</div>
+                <div class="chip" onclick="selectChip(this)">Diagnostic Imaging</div>
+                <div class="chip" onclick="selectChip(this)">Pharmacy</div>
+                <div class="chip" onclick="selectChip(this)">Specialist Consultation</div>
+            </div>
+            <button class="finder-btn" onclick="confirmService()">Confirm Selection →</button>
+        </div>
+    </div>
+
+    <!-- SERVICES LISTING -->
+    <section class="services-section">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">What We Offer</div>
+                <h2 class="section-title">Integrated Healthcare Under One Roof</h2>
+                <p class="section-sub">From routine checkups to emergency care, we cover every aspect of your family's
+                    health needs with skilled professionals and modern equipment.</p>
+            </div>
+            <div class="services-grid">
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&q=80"
+                            alt="General Outpatient Care" loading="lazy">
+                        <span class="svc-badge">Primary Care</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>General Outpatient Care</h4>
+                        <p>Comprehensive consultations for adults and children, including preventive check-ups,
+                            immunizations, and minor procedures such as wound care and suturing.</p>
+                        <a href="contact.html" class="svc-link">Book a Consultation →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80"
+                            alt="Inpatient Services" loading="lazy">
+                        <span class="svc-badge">Hospitalization</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Inpatient Services</h4>
+                        <p>10-bed medical ward offering observation, emergency admissions, maternity care, and 24/7
+                            nursing with nutritional support for full recovery.</p>
+                        <a href="contact.html" class="svc-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80"
+                            alt="Specialist Clinics" loading="lazy">
+                        <span class="svc-badge">Expert Consultations</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Specialist Clinics</h4>
+                        <p>By appointment: Internal Medicine, Pediatrics, Obstetrics &amp; Gynecology, Minor Surgery,
+                            Geriatrics, Chronic Disease Management, and Palliative Care.</p>
+                        <a href="contact.html" class="svc-link">Book a Specialist →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80"
+                            alt="Diagnostic and Lab Services" loading="lazy">
+                        <span class="svc-badge">Accurate Testing</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Diagnostic &amp; Laboratory</h4>
+                        <p>On-site laboratory for CBC, LFTs, RFTs, HIV, Malaria, and advanced testing. Ultrasound
+                            services and X-ray available via our partner labs.</p>
+                        <a href="contact.html" class="svc-link">Request Tests →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"
+                            alt="On-Site Pharmacy" loading="lazy">
+                        <span class="svc-badge">Safe &amp; Fast</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>On-Site Pharmacy</h4>
+                        <p>Immediate access to prescribed medications with ethical sourcing and expert guidance from our
+                            licensed pharmaceutical technologist.</p>
+                        <a href="pharmacy.html" class="svc-link">View Pharmacy →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=800&q=80"
+                            alt="Dental Services" loading="lazy">
+                        <span class="svc-badge">Oral Health</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Dental Services</h4>
+                        <p>Basic dental care including extractions, fillings, cleanings, and oral health education for
+                            patients of all ages across the whole family.</p>
+                        <a href="contact.html" class="svc-link">Book Dental Visit →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80"
+                            alt="Maternity Services" loading="lazy">
+                        <span class="svc-badge">Prenatal &amp; Delivery</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Maternity Services</h4>
+                        <p>From prenatal visits to normal delivery and postnatal care — we support mothers throughout
+                            their journey with dignity, safety, and compassion.</p>
+                        <a href="contact.html" class="svc-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img"
+                            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+                            alt="Telemedicine" loading="lazy">
+                        <span class="svc-badge">Virtual Care</span>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Telemedicine</h4>
+                        <p>Remote consultations powered by BEYON8 — access expert care from home for follow-ups and
+                            chronic disease management, securely and conveniently.</p>
+                        <a href="https://wa.me/254758833863?text=I'd%20like%20a%20telemedicine%20consultation"
+                            target="_blank" class="svc-link">Book Teleconsult →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAND -->
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>Inpatient Beds Available</p>
+            </div>
+            <div class="stat-item">
+                <h3>2024</h3>
+                <p>Serving Families Since June</p>
+            </div>
+            <div class="stat-item">
+                <h3>3B</h3>
+                <p>MOH Licensed Level</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Emergency Response</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEDICAL TEAM -->
+    <section class="team-section">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">Our Medical Team</div>
+                <h2 class="section-title">Meet Our Healthcare Professionals</h2>
+                <p class="section-sub">Our team is committed to delivering safe, ethical, and patient-centered care with
+                    professionalism and compassion.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img class="team-img" src="assets/doctor.JPG" alt="Dr. Namu David Mbogo" loading="lazy">
+                    </div>
+                    <div class="team-body">
+                        <h4>Dr. Namu David Mbogo</h4>
+                        <span class="role">Superintendent &amp; Lead Physician</span>
+                        <p>Licensed practitioner and the driving force behind Cairo Family Hospital's commitment to
+                            quality, ethical care.</p>
+                        <span class="team-badge">✔ PPB Approved Premises</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img class="team-img" src="assets/phar.JPG" alt="General Practitioners" loading="lazy">
+                    </div>
+                    <div class="team-body">
+                        <h4>General Practitioners</h4>
+                        <span class="role">Full-Time Physicians</span>
+                        <p>Licensed doctors providing comprehensive adult and pediatric care with a focus on prevention
+                            and continuity.</p>
+                        <span class="team-badge">✔ MOH Licensed</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img class="team-img" src="assets/background.png" alt="Specialist Consultants" loading="lazy">
+                    </div>
+                    <div class="team-body">
+                        <h4>Specialist Consultants</h4>
+                        <span class="role">Visiting Experts</span>
+                        <p>Specialists in Internal Medicine, Pediatrics, OB-GYN, Surgery, Oncology, and Chronic Disease
+                            Management — by appointment.</p>
+                        <span class="team-badge">✔ Appointment-Based</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img class="team-img" src="assets/nurse.JPG" alt="Pharmacy and Nursing Team" loading="lazy">
+                    </div>
+                    <div class="team-body">
+                        <h4>Pharmacy &amp; Nursing Team</h4>
+                        <span class="role">24/7 Support Staff</span>
+                        <p>Licensed pharmaceutical technologist and registered nurses providing round-the-clock
+                            dispensing, patient care, and support services.</p>
+                        <span class="team-badge">✔ 24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights-section">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">Why Trust Us</div>
+                <h2 class="section-title">Standards That Set Us Apart</h2>
+                <p class="section-sub">Everything we do is guided by compliance, compassion, and a commitment to
+                    excellence in patient care.</p>
+            </div>
+            <div class="highlights-grid">
+                <div class="hl-card">
+                    <div class="hl-icon">🏅</div>
+                    <div>
+                        <h4>Expert &amp; Licensed Team</h4>
+                        <p>Fully compliant with MOH and PPB standards. Our medical staff are registered, licensed, and
+                            committed to ethical, patient-centered care.</p>
+                    </div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-icon">💊</div>
+                    <div>
+                        <h4>On-Site Pharmacy</h4>
+                        <p>Immediate access to prescribed, ethical medicines. Sourced responsibly and dispensed by a
+                            licensed pharmaceutical technologist.</p>
+                    </div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-icon">🏥</div>
+                    <div>
+                        <h4>Level 3B Facility</h4>
+                        <p>10-bed inpatient care with emergency admissions, observation, and nursing support. Licensed
+                            and regulated for quality care.</p>
+                    </div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-icon">💻</div>
+                    <div>
+                        <h4>Telemedicine Ready</h4>
+                        <p>Remote care via <strong>BEYON8</strong> for follow-ups and chronic disease management —
+                            convenient, secure, and accessible from home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="wrap" style="text-align:center;">
+            <h2>Ready to Book Your Appointment?</h2>
+            <p>Reach us instantly via WhatsApp — quick, easy, and convenient for the whole family.</p>
+            <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+                target="_blank">
+                <i class="fab fa-whatsapp"></i> Book via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Cairo Family Hospital</h4>
+                <p>Your trusted partner in healthcare, providing quality, ethical, and accessible services for every
+                    family in Ruiru and across Kiambu County.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank"
+                        aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/254758833863" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> General &amp; Pediatric Care</a>
+                    </li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Inpatient &amp; Maternity</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Laboratory &amp; Pharmacy</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Specialist Consultations</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Emergency &amp; Ambulance</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Thome Road, Plot No. 86200, Ruiru, Kiambu County, Kenya</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+254758833863" style="color:inherit;">+254 758 833 863</a>
+                </p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@cairofamilyhospital.co.ke"
+                        style="color:inherit;">info@cairofamilyhospital.co.ke</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:cairohospital000@gmail.com"
+                        style="color:inherit;">cairohospital000@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2024 Cairo Family Hospital Ruiru Ltd. All rights reserved.</span>
+            <span>Designed with care for families in Ruiru</span>
+        </div>
+    </footer>
+
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cairo Family Hospital Ruiru Ltd — providing safe, compassionate, and affordable healthcare for families since June 2024.">
+  <meta name="keywords"
+    content="Cairo Family Hospital, healthcare, medical services, family care, Ruiru, Kenya, Level 3B hospital, Kiambu County">
+  <title>Cairo Family Hospital - Home</title>
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-left">
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Thome Road, Ruiru, Kiambu County</a>
+        <a href="tel:+254758833863"><i class="fas fa-phone"></i> +254 758 833 863</a>
+        <a href="mailto:info@cairofamilyhospital.co.ke"><i class="fas fa-envelope"></i>
+          info@cairofamilyhospital.co.ke</a>
+      </div>
+      <div class="topbar-right">
+        <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank" aria-label="Facebook"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+            class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+            class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="logo-text">
+          <strong>Cairo Family Hospital</strong>
+          <span>Ruiru Ltd — Kiambu County</span>
+        </div>
+      </a>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="pharmacy.html">Pharmacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+          target="_blank" class="btn-appt"><i class="fab fa-whatsapp"></i> Book Appointment</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER with SINGLE LOCAL BACKGROUND IMAGE -->
+  <section class="hero" id="home" aria-label="Hero Banner">
+    <div class="hero-background" style="background-image: url('assets/background.png');"></div>
+    <div class="slides" id="heroSlides">
+      <div class="slide">
+        <div class="slide-content">
+          <div class="slide-tag"><i class="fas fa-certificate"></i> Level 3B Licensed Facility</div>
+          <h1>Your Trusted Partner in Family-Centered Healthcare</h1>
+          <p>Providing safe, compassionate, and affordable care since June 2024 — right here in Ruiru, Kiambu County.
+          </p>
+          <div class="slide-btns">
+            <a href="about.html" class="btn-primary"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="services.html" class="btn-outline"><i class="fas fa-stethoscope"></i> Our Services</a>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <div class="slide-tag"><i class="fas fa-child"></i> Pediatrics & Maternity</div>
+          <h1>Expert Care for Every Family Member</h1>
+          <p>From pediatrics to chronic disease management, we are here for you — with ambulance referrals,
+            telemedicine, and an in-house pharmacy.</p>
+          <div class="slide-btns">
+            <a href="services.html" class="btn-primary"><i class="fas fa-list-ul"></i> View Services</a>
+            <a href="contact.html" class="btn-outline"><i class="fas fa-phone-alt"></i> Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <div class="slide-tag"><i class="fas fa-ambulance"></i> Emergency & Ambulance</div>
+          <h1>Quick Response When You Need It Most</h1>
+          <p>Our emergency care team and ambulance service are ready 24/7 — providing fast, safe, and seamless emergency
+            referrals.</p>
+          <div class="slide-btns">
+            <a href="tel:+254758833863" class="btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+            <a href="https://wa.me/254758833863" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i>
+              WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="hero-arrow prev" onclick="changeSlide(-1)" aria-label="Previous"><i
+        class="fas fa-chevron-left"></i></button>
+    <button class="hero-arrow next" onclick="changeSlide(1)" aria-label="Next"><i
+        class="fas fa-chevron-right"></i></button>
+    <div class="hero-nav" id="heroDots">
+      <button class="hero-dot active" onclick="goSlide(0)"></button>
+      <button class="hero-dot" onclick="goSlide(1)"></button>
+      <button class="hero-dot" onclick="goSlide(2)"></button>
+    </div>
+  </section>
+
+  <!-- QUICK SERVICE FINDER -->
+  <div class="finder">
+    <div class="finder-inner">
+      <h3><i class="fas fa-search"></i> Find a Service:</h3>
+      <div class="finder-chips">
+        <div class="chip sel" onclick="selectChip(this)">General Medicine</div>
+        <div class="chip" onclick="selectChip(this)">Pediatrics</div>
+        <div class="chip" onclick="selectChip(this)">Maternity Care</div>
+        <div class="chip" onclick="selectChip(this)">Emergency Care</div>
+        <div class="chip" onclick="selectChip(this)">Dental</div>
+        <div class="chip" onclick="selectChip(this)">Diagnostic Imaging</div>
+        <div class="chip" onclick="selectChip(this)">Pharmacy</div>
+      </div>
+      <button class="finder-btn" onclick="confirmService()">Confirm Selection <i
+          class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why" id="about">
+    <div class="wrap">
+      <div class="section-header center">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">Why Families Choose Cairo Family Hospital</h2>
+        <p class="section-sub">Because your family deserves care that's safe, smart, and full of heart.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <h4>Level 3B Licensed Facility</h4>
+            <p>Fully certified by MOH &amp; PPB — safe, regulated, and trusted.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-bed"></i></div>
+          <div>
+            <h4>10-Bed Inpatient Ward</h4>
+            <p>Comfortable, clean, and equipped for recovery round the clock.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-baby"></i></div>
+          <div>
+            <h4>Pediatrics, Maternity &amp; Immunizations</h4>
+            <p>Supporting family health from birth to beyond.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-video"></i></div>
+          <div>
+            <h4>Telemedicine via BEYON8</h4>
+            <p>Remote consultations for follow-ups and chronic care.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-flask"></i></div>
+          <div>
+            <h4>In-House Lab &amp; Pharmacy</h4>
+            <p>Fast diagnostics and immediate medication access.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-user-md"></i></div>
+          <div>
+            <h4>Experienced Medical Team</h4>
+            <p>Led by Dr. Namu David Mbogo — licensed and passionate.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-ambulance"></i></div>
+          <div>
+            <h4>Ambulance &amp; Emergency Referrals</h4>
+            <p>Quick response, safe transport, seamless referrals.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <h4>Insurance &amp; SHA Accepted</h4>
+            <p>We accept SHA and onboarding private insurers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services" style="background:#fff;">
+    <div class="wrap">
+      <div class="section-header center">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">Comprehensive Healthcare Under One Roof</h2>
+        <p class="section-sub">From routine checkups to emergency care, we cover every aspect of your family's health.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-stethoscope"></i></div>
+          <h4>General Medicine</h4>
+          <p>Routine checkups and disease management</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-baby-carriage"></i></div>
+          <h4>Pediatrics</h4>
+          <p>Gentle care for infants and children</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-heartbeat"></i></div>
+          <h4>Maternity Care</h4>
+          <p>Antenatal, delivery, and postnatal services</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-ambulance"></i></div>
+          <h4>Emergency Care</h4>
+          <p>24/7 emergency response and referrals</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-tooth"></i></div>
+          <h4>Dental</h4>
+          <p>Preventive and restorative dental services</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-x-ray"></i></div>
+          <h4>Diagnostic Imaging</h4>
+          <p>X-ray and radiology referral services</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-pills"></i></div>
+          <h4>In-House Pharmacy</h4>
+          <p>Quality medicines, available immediately</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-flask"></i></div>
+          <h4>Laboratory</h4>
+          <p>Fast and accurate diagnostic testing</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-video"></i></div>
+          <h4>Telemedicine</h4>
+          <p>Virtual consultations via BEYON8</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-syringe"></i></div>
+          <h4>Immunizations</h4>
+          <p>Vaccination programs for all ages</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>10+</h3>
+        <p>Inpatient Beds Available</p>
+      </div>
+      <div class="stat-item">
+        <h3>2024</h3>
+        <p>Serving Families Since June</p>
+      </div>
+      <div class="stat-item">
+        <h3>3B</h3>
+        <p>MOH Licensed Level</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Emergency Response</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION & VALUES -->
+  <section class="mission">
+    <div class="wrap">
+      <div class="section-header center">
+        <div class="section-tag" style="color:var(--accent);">Our Mission & Values</div>
+        <h2 class="section-title">Guiding Principles That Shape How We Care</h2>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-box">
+          <h4>Our Mission</h4>
+          <p>"To provide safe, compassionate, and accessible healthcare for families in Ruiru and beyond."</p>
+        </div>
+        <div class="mission-box">
+          <h4>Our Vision</h4>
+          <p>"To become the most trusted and reliable family hospital in Kiambu County, offering holistic and inclusive
+            healthcare solutions."</p>
+        </div>
+      </div>
+      <div class="values-grid">
+        <div class="val-card">
+          <div class="val-emoji">🤝</div>
+          <h5>Compassion</h5>
+          <p>Care with empathy and dignity.</p>
+        </div>
+        <div class="val-card">
+          <div class="val-emoji">⚖️</div>
+          <h5>Integrity</h5>
+          <p>Ethical, honest, and transparent.</p>
+        </div>
+        <div class="val-card">
+          <div class="val-emoji">👨‍⚕️</div>
+          <h5>Professionalism</h5>
+          <p>Skilled, licensed, and accountable.</p>
+        </div>
+        <div class="val-card">
+          <div class="val-emoji">📈</div>
+          <h5>Continuous Improvement</h5>
+          <p>Always raising the standard of care.</p>
+        </div>
+        <div class="val-card">
+          <div class="val-emoji">❤️</div>
+          <h5>Patient-Centered</h5>
+          <p>We listen first — involve you in every decision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIPS -->
+  <section class="partners">
+    <div class="wrap">
+      <div class="section-header center">
+        <div class="section-tag">Partnerships</div>
+        <h2 class="section-title">We Don't Work Alone</h2>
+        <p class="section-sub">Better health takes a community — here's who we collaborate with.</p>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-card"><i class="fas fa-shield-alt"></i>
+          <h5>Insurance Companies</h5>
+          <p>SHA &amp; private insurers</p>
+        </div>
+        <div class="partner-card"><i class="fas fa-briefcase"></i>
+          <h5>Local Employers</h5>
+          <p>Corporate health packages</p>
+        </div>
+        <div class="partner-card"><i class="fas fa-hands-helping"></i>
+          <h5>NGOs</h5>
+          <p>Maternal &amp; chronic disease programs</p>
+        </div>
+        <div class="partner-card"><i class="fas fa-pills"></i>
+          <h5>Pharmacies</h5>
+          <p>Ethical medicine supply chain</p>
+        </div>
+        <div class="partner-card"><i class="fas fa-microscope"></i>
+          <h5>Diagnostic Labs</h5>
+          <p>Radiology referrals</p>
+        </div>
+        <div class="partner-card"><i class="fas fa-flag-kenya"></i>
+          <h5>Government</h5>
+          <p>Community health days &amp; vaccinations</p>
+        </div>
+      </div>
+      <div class="tele-banner"><i class="fas fa-laptop-medical"></i>
+        <div>
+          <strong>Telemedicine Powered by BEYON8</strong>
+          <span>Virtual consultations for remote care, follow-ups, and chronic disease management.</span>
+        </div>
+        <a href="https://wa.me/254758833863?text=I'd%20like%20a%20telemedicine%20consultation" target="_blank">Book
+          Teleconsult <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CONTENT -->
+  <section class="featured-content">
+    <div class="featured-box">
+      <h2>Your Health, Our Priority</h2>
+      <p>Experience comprehensive healthcare tailored to your family's unique needs. From routine checkups to
+        specialized care, we're here every step of the way.</p>
+      <a href="contact.html" class="btn-primary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="section-header center">
+        <div class="section-tag">Patient Stories</div>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <p class="section-sub">Real experiences from families who trust us with their healthcare needs.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>The care I received was exceptional. The staff made me feel at ease throughout my treatment.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="assets/testimonial%20user.png" alt="Mary" loading="lazy">MW
+            </div>
+            <div>
+              <strong>Mary Wanjiru</strong>
+              <span>Ruiru, Kenya</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>The pediatric team was wonderful with my child — gentle and thorough care. Highly recommend!</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="assets/index%20testimonial.png" alt="John" loading="lazy">JM
+            </div>
+            <div>
+              <strong>John Mwangi</strong>
+              <span>Thika, Kenya</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>The emergency care team responded quickly and saved my life. Deeply grateful for their expertise.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="assets/testimonial%201.png" alt="Faith" loading="lazy">FN
+            </div>
+            <div>
+              <strong>Faith Nyambura</strong>
+              <span>Nairobi, Kenya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (Contact Section) -->
+  <div class="cta" id="contact">
+    <div class="wrap" style="text-align:center;">
+      <h2>Ready to Experience Patient-Centered Care?</h2>
+      <p>Book an appointment today via WhatsApp — quick, easy, and convenient.</p>
+      <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+        target="_blank"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h4>Cairo Family Hospital</h4>
+        <p>Your trusted partner in healthcare, providing quality, ethical, and accessible services for every family in
+          Ruiru and across Kiambu County.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank" aria-label="Facebook"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+              class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/254758833863" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> General &amp; Pediatric Care</a>
+          </li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Inpatient &amp; Maternity</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Laboratory &amp; Pharmacy</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Emergency &amp; Ambulance</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Thome Road, Plot No. 86200, Ruiru, Kiambu County, Kenya</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+254758833863" style="color:inherit;">+254 758 833 863</a>
+        </p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@cairofamilyhospital.co.ke"
+            style="color:inherit;">info@cairofamilyhospital.co.ke</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:cairohospital000@gmail.com"
+            style="color:inherit;">cairohospital000@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Cairo Family Hospital Ruiru Ltd. All rights reserved.</span>
+      <span>Designed with care for families in Ruiru</span>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

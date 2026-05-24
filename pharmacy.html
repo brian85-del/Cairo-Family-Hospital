@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cairo Family Hospital Online Pharmacy — quality medicines, health products, and fast delivery in Ruiru, Kiambu County, Kenya.">
+    <meta name="keywords"
+        content="Cairo Family Hospital, pharmacy, medicines, health products, Ruiru, Kenya, online pharmacy, prescription drugs">
+    <title>Cairo Family Hospital - Online Pharmacy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="wrap">
+            <div class="topbar-left">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Thome Road, Ruiru, Kiambu County</a>
+                <a href="tel:+254758833863"><i class="fas fa-phone"></i> +254 758 833 863</a>
+                <a href="mailto:info@cairofamilyhospital.co.ke"><i class="fas fa-envelope"></i>
+                    info@cairofamilyhospital.co.ke</a>
+            </div>
+            <div class="topbar-right">
+                <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank"
+                    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="logo-text">
+                    <strong>Cairo Family Hospital</strong>
+                    <span>Ruiru Ltd — Kiambu County</span>
+                </div>
+            </a>
+            <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="pharmacy.html" class="active">Pharmacy</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+                    target="_blank" class="btn-appt"><i class="fab fa-whatsapp"></i> Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <div class="slide-tag"> PPB Licensed In-House Pharmacy</div>
+            <h1>Your Health, Delivered with Care</h1>
+            <p>Quality medicines, supplements, and health products — available in-clinic and via WhatsApp order, right
+                here in Ruiru, Kiambu County.</p>
+            <div class="hero-search">
+                <input type="text" id="searchInput" placeholder="Search medicines, vitamins, supplements…"
+                    oninput="filterProducts()">
+                <button onclick="filterProducts()"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORY FILTER -->
+    <div class="categories">
+        <div class="wrap">
+            <div class="cat-row" id="catRow">
+                <div class="cat-chip active" data-cat="all" onclick="setCategory(this, 'all')"><i
+                        class="fas fa-hospital"></i> All Products</div>
+                <div class="cat-chip" data-cat="prescription" onclick="setCategory(this, 'prescription')"><i
+                        class="fas fa-prescription-bottle"></i> Prescription</div>
+                <div class="cat-chip" data-cat="otc" onclick="setCategory(this, 'otc')"><i class="fas fa-capsules"></i>
+                    OTC Medicines</div>
+                <div class="cat-chip" data-cat="maternal" onclick="setCategory(this, 'maternal')"><i
+                        class="fas fa-baby"></i> Maternal & Baby</div>
+                <div class="cat-chip" data-cat="vitamins" onclick="setCategory(this, 'vitamins')"><i
+                        class="fas fa-leaf"></i> Vitamins & Supplements</div>
+                <div class="cat-chip" data-cat="dental" onclick="setCategory(this, 'dental')"><i
+                        class="fas fa-tooth"></i> Dental Care</div>
+                <div class="cat-chip" data-cat="chronic" onclick="setCategory(this, 'chronic')"><i
+                        class="fas fa-heartbeat"></i> Chronic Disease</div>
+                <div class="cat-chip" data-cat="firstaid" onclick="setCategory(this, 'firstaid')"><i
+                        class="fas fa-band-aid"></i> First Aid</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+        <div class="wrap">
+            <div class="rx-notice">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Prescription Medicines:</strong> Items marked <strong>Rx</strong> require a valid
+                    prescription from a licensed doctor. You can upload your prescription below or bring it in-person.
+                    Our pharmacist will verify before dispensing.</p>
+            </div>
+            <div class="products-toolbar">
+                <span id="productCount">Showing all 18 products</span>
+                <select onchange="sortProducts(this.value)">
+                    <option value="default">Sort: Featured</option>
+                    <option value="az">Name: A–Z</option>
+                    <option value="za">Name: Z–A</option>
+                </select>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+            <div class="delivery-banner">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <strong>Same-Day In-Clinic Pickup Available</strong>
+                    <p>Order via WhatsApp and collect from our pharmacy within hours. We also partner with local courier
+                        services for nearby home delivery in Ruiru and Thika Road corridor.</p>
+                </div>
+                <a href="https://wa.me/254758833863?text=Hello,%20I%20would%20like%20to%20order%20medicine%20from%20Cairo%20Family%20Hospital%20Pharmacy."
+                    target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section class="how">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">How It Works</div>
+                <h2 class="section-title">Order Your Medicines in 4 Easy Steps</h2>
+                <p class="section-sub">Getting your medication from Cairo Family Hospital Pharmacy is simple, safe, and
+                    fast.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h4>Browse & Select</h4>
+                    <p>Find the medicine or health product you need from our catalogue above or search by name.</p>
+                    <span class="step-arrow"><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>Order via WhatsApp</h4>
+                    <p>Send us a message on WhatsApp with your product name and quantity. We'll confirm availability
+                        instantly.</p>
+                    <span class="step-arrow"><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-icon"><i class="fas fa-file-prescription"></i></div>
+                    <h4>Share Prescription (if Rx)</h4>
+                    <p>For prescription items, send a photo of your valid doctor's prescription. Our pharmacist will
+                        review it.</p>
+                    <span class="step-arrow"><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>Pick Up or Delivery</h4>
+                    <p>Collect from our in-house pharmacy at Thome Road, Ruiru — or arrange local delivery via WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESCRIPTION UPLOAD -->
+    <section class="rx-section">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag" style="color:var(--accent);">Prescription Services</div>
+                <h2 class="section-title">Upload Your Prescription</h2>
+                <p class="section-sub">Send us your prescription directly and our licensed pharmacist will prepare your
+                    medication.</p>
+            </div>
+            <div class="rx-grid">
+                <div class="rx-upload-box" onclick="document.getElementById('rxFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h4>Upload Prescription Photo</h4>
+                    <p>Tap to select or take a photo of your prescription. Accepted: JPG, PNG, PDF.</p>
+                    <label for="rxFile"><i class="fas fa-paperclip"></i> Choose File</label>
+                    <input type="file" id="rxFile" accept=".jpg,.jpeg,.png,.pdf" onchange="handleRxUpload(this)">
+                    <p id="rxFileName" style="margin-top:12px;font-size:13px;color:var(--accent);display:none;"></p>
+                    <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.50);">Or send directly via
+                        WhatsApp for faster processing</p>
+                </div>
+                <div class="rx-info">
+                    <div class="section-header">
+                        <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:8px;">What to Know</h3>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Only prescriptions from licensed Kenyan medical
+                            practitioners are accepted</li>
+                        <li><i class="fas fa-check-circle"></i> Prescription must be clear, legible, and dated within 3
+                            months</li>
+                        <li><i class="fas fa-check-circle"></i> Our pharmacist will contact you within 30 minutes to
+                            confirm your order</li>
+                        <li><i class="fas fa-check-circle"></i> Controlled substances are dispensed strictly per Kenya
+                            Pharmacy & Poisons Board regulations</li>
+                        <li><i class="fas fa-check-circle"></i> You can also walk in with your physical prescription at
+                            our Ruiru facility</li>
+                        <li><i class="fas fa-clock"></i> Our in-house pharmacist is available Monday – Saturday, 8 AM –
+                            8 PM</li>
+                    </ul>
+                    <a href="https://wa.me/254758833863?text=I%20would%20like%20to%20send%20my%20prescription%20for%20medicine%20dispensing."
+                        target="_blank" class="wa-rx-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp Instead</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY OUR PHARMACY -->
+    <section class="why-pharm">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">Why Choose Us</div>
+                <h2 class="section-title">Why Our Pharmacy Stands Out</h2>
+                <p class="section-sub">Safe, affordable, and conveniently connected to our full medical team.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-certificate"></i></div>
+                    <div>
+                        <h4>PPB Licensed & Regulated</h4>
+                        <p>Our pharmacy is fully licensed by Kenya's Pharmacy and Poisons Board — every product is
+                            authentic and safe.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-user-md"></i></div>
+                    <div>
+                        <h4>Directly Connected to Your Doctor</h4>
+                        <p>Because we're in-house, your pharmacist communicates directly with your treating physician
+                            for accuracy.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-tag"></i></div>
+                    <div>
+                        <h4>Affordable Pricing</h4>
+                        <p>We keep our medicine prices fair and transparent. SHA and select insurance accepted for
+                            eligible products.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4>Immediate Availability</h4>
+                        <p>No extra trips — get your prescription filled right after your consultation, all under one
+                            roof.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-star"></i></div>
+                    <div>
+                        <h4>Quality Brands Only</h4>
+                        <p>We stock medicines from ethical, reputable suppliers and distributors certified in Kenya.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <div>
+                        <h4>Expert Pharmacist Guidance</h4>
+                        <p>Our licensed pharmacist provides free counselling on dosage, side effects, and drug
+                            interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="wrap">
+            <div class="section-header center">
+                <div class="section-tag">FAQs</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-sub">Everything you need to know about our pharmacy services.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Can I order medicine without visiting the hospital?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">Yes! For over-the-counter (OTC) products, simply message us on WhatsApp with your
+                        request and we'll prepare your order for pickup or arrange local delivery. For prescription
+                        medicines, you'll need to share a valid prescription first.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Do you accept SHA or health insurance for pharmacy purchases?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">Yes, we accept SHA (Social Health Authority) and are in the process of onboarding
+                        select private insurers. Please inquire with our pharmacy team to confirm whether your specific
+                        insurance covers the medicines you need.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        What are your pharmacy operating hours?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">Our pharmacy is open Monday to Saturday from 8:00 AM to 8:00 PM. For urgent
+                        medication needs outside these hours, please call our emergency line at +254 758 833 863 and
+                        we'll do our best to assist you.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        How do I know my prescription medicines are genuine?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">All our medicines are sourced exclusively from licensed and registered Kenyan
+                        pharmaceutical distributors. Our pharmacy is PPB licensed, and we maintain full supply chain
+                        documentation for every product we stock.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Can the pharmacist advise me on my medication?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">Absolutely. Our licensed pharmacist is always available to counsel you on proper
+                        dosage, potential side effects, food and drug interactions, and safe storage of your medicines —
+                        at no extra charge.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Do you offer chronic disease medication refills?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">Yes! For patients managing chronic conditions like hypertension, diabetes, or
+                        asthma, we offer convenient refill services. You can even book a telemedicine follow-up via
+                        BEYON8 and get your refill prescription sent digitally.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="wrap" style="text-align:center;">
+            <h2>Need Medicines or Health Products?</h2>
+            <p>Order via WhatsApp — quick, easy, and always pharmacist-verified.</p>
+            <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20order%20medicine%20from%20your%20pharmacy."
+                target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Cairo Family Hospital</h4>
+                <p>Your trusted partner in healthcare, providing quality, ethical, and accessible services for every
+                    family in Ruiru and across Kiambu County.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank"
+                        aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/254758833863" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> Pharmacy</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Pharmacy</h4>
+                <ul>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> OTC Medicines</a></li>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> Prescription Drugs</a></li>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> Vitamins & Supplements</a></li>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> Maternal & Baby Care</a></li>
+                    <li><a href="pharmacy.html"><i class="fas fa-chevron-right"></i> Chronic Disease Refills</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Thome Road, Plot No. 86200, Ruiru, Kiambu County, Kenya</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+254758833863" style="color:inherit;">+254 758 833 863</a>
+                </p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@cairofamilyhospital.co.ke"
+                        style="color:inherit;">info@cairofamilyhospital.co.ke</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:cairohospital000@gmail.com"
+                        style="color:inherit;">cairohospital000@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2024 Cairo Family Hospital Ruiru Ltd. All rights reserved.</span>
+            <span>Designed with care for families in Ruiru</span>
+        </div>
+    </footer>
+
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
