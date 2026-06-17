@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Cairo Family Hospital – Dental Department | Ruiru, Kiambu County</title>
+    <meta name="description"
+        content="Cairo Family Hospital offers preventive and restorative dental services in Ruiru, Kiambu County. Book an appointment today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="dental.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="wrap">
+            <div class="topbar-left">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Thome Road, Ruiru, Kiambu County</a>
+                <a href="tel:+254758833863"><i class="fas fa-phone"></i> +254 758 833 863</a>
+                <a href="mailto:info@cairofamilyhospital.co.ke"><i class="fas fa-envelope"></i>
+                    info@cairofamilyhospital.co.ke</a>
+            </div>
+            <div class="topbar-right">
+                <a href="https://www.facebook.com/profile.php?id=100094585454733" target="_blank"
+                    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank" aria-label="TikTok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/cairo_family_hospital" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIXED NAVBAR -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="logo-text">
+                    <strong>Cairo Family Hospital</strong>
+                    <span>Ruiru Ltd — Kiambu County</span>
+                </div>
+            </a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown" id="servicesDropdown">
+                    <a href="services.html" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#general">General Medicine</a>
+                        <a href="dental.html">Dental</a>
+                        <a href="paediatrics.html">Pediatrics</a>
+                        <a href="maternity.html">Maternity</a>
+                    </div>
+                </div>
+                <a href="pharmacy.html">Pharmacy</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+                    target="_blank" class="btn-appt"><i class="fab fa-whatsapp"></i> Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow2"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Dental Department · Level 3B Licensed</div>
+                <h1>A Better Life Starts<br>with a <span>Beautiful Smile</span></h1>
+                <p>Cairo Family Hospital's Dental Department provides quality, affordable, and comprehensive dental care
+                    for every family in Ruiru and Kiambu County — from routine checkups to advanced restorative
+                    treatments.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital%2C%20I%20would%20like%20to%20book%20a%20dental%20appointment."
+                        target="_blank" class="btn-primary">Book Appointment</a>
+                    <a href="#services" class="btn-outline">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <div class="hero-card-icon"></div>
+                    <h3>Preventive Care</h3>
+                    <p>Cleanings, checkups & patient education</p>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-icon"></div>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Whitening, veneers & braces</p>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-icon"></div>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>Gentle, child-friendly care</p>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-icon"></div>
+                    <h3>SHA Accepted</h3>
+                    <p>We accept SHA & private insurers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-band">
+        <div class="stats-inner">
+            <div class="stat-item"><span class="stat-num" id="stat1">500+</span>
+                <div class="stat-label">Dental Patients Served</div>
+            </div>
+            <div class="stat-item"><span class="stat-num">8+</span>
+                <div class="stat-label">Dental Services Offered</div>
+            </div>
+            <div class="stat-item"><span class="stat-num">2024</span>
+                <div class="stat-label">Established & Serving Families</div>
+            </div>
+            <div class="stat-item"><span class="stat-num">3B</span>
+                <div class="stat-label">MOH Licensed Level</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="services-bg" id="services">
+        <div class="section-inner">
+            <div class="reveal"><span class="section-tag">Our Services</span>
+                <h2 class="section-title">Comprehensive Dental Care<br>Under One Roof</h2>
+                <p class="section-desc">From routine checkups to advanced restorative and cosmetic procedures, our
+                    dental team at Cairo Family Hospital is equipped to care for every member of your family.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/dental-cleaning-480x480.png" alt="Dental Cleaning">
+                    </div>
+                    <div class="service-icon"></div>
+                    <h3>Dental Cleaning</h3>
+                    <p>Scaling removes plaque and tartar from above and below the gum line, while polishing smoothens
+                        teeth to reduce future buildup and enhance shine.</p>
+                    <div class="service-description">
+                        <p><strong>Includes:</strong> Professional scaling, polishing, fluoride treatment, and oral
+                            hygiene guidance.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/white teeth.webp" alt="Teeth Whitening"></div>
+                    <div class="service-icon"></div>
+                    <h3>Teeth Whitening</h3>
+                    <p>Professional bleaching treatment to lighten your existing tooth color by several shades, giving
+                        you a brighter, more confident smile.</p>
+                    <div class="service-description">
+                        <p><strong>Duration:</strong> 60-90 minutes | <strong>Results:</strong> Up to 8 shades lighter
+                        </p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/root-canal-150x150.png" alt="Root Canal Treatment">
+                    </div>
+                    <div class="service-icon"></div>
+                    <h3>Root Canal Treatment</h3>
+                    <p>Endodontic treatment to remove infected dental pulp and save your natural tooth — performed with
+                        care and precision by our experienced team.</p>
+                    <div class="service-description">
+                        <p><strong>Pain-free procedure</strong> with modern anesthesia | <strong>Saves natural
+                                tooth</strong></p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/tooth-filling-150x150.png" alt="Dental Fillings"></div>
+                    <div class="service-icon"></div>
+                    <h3>Dental Fillings</h3>
+                    <p>Restoration of teeth damaged by decay back to normal function and shape using quality filling
+                        materials — fast, comfortable, and durable.</p>
+                    <div class="service-description">
+                        <p><strong>Materials:</strong> Composite resin, ceramic, or amalgam | <strong>Tooth-colored
+                                options</strong></p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/dental implants.webp" alt="Dental Implants"></div>
+                    <div class="service-icon"></div>
+                    <h3>Dental Implants</h3>
+                    <p>Titanium implants surgically placed in the jawbone to replace missing tooth roots, topped with a
+                        crown that looks and feels like a natural tooth.</p>
+                    <div class="service-description">
+                        <p><strong>Long-lasting solution</strong> | <strong>Success rate:</strong> 95-98% |
+                            <strong>Natural look & feel</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/braces-150x150.png" alt="Dental Braces"></div>
+                    <div class="service-icon"></div>
+                    <h3>Dental Braces</h3>
+                    <p>Orthodontic appliances to straighten teeth and correct bite problems — applying gentle,
+                        controlled pressure over time for a perfect smile.</p>
+                    <div class="service-description">
+                        <p><strong>Options:</strong> Metal, ceramic, or lingual braces | <strong>Payment plans
+                                available</strong></p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/paeds.webp" alt="Pediatric Dentistry"></div>
+                    <div class="service-icon"></div>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>Child-friendly dental care with a gentle touch — from first visits and cleanings to fillings and
+                        preventive treatments for growing smiles.</p>
+                    <div class="service-description">
+                        <p><strong>Ages:</strong> 1-18 | <strong>Fun, calm environment</strong> | <strong>Preventive
+                                sealants</strong></p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/dentures.webp" alt="Dentures"></div>
+                    <div class="service-icon"></div>
+                    <h3>Dentures</h3>
+                    <p>Custom-fitted removable or fixed dentures to replace missing teeth and restore functionality,
+                        comfort, and the natural appearance of your smile.</p>
+                    <div class="service-description">
+                        <p><strong>Full or partial dentures</strong> | <strong>Comfortable fit guaranteed</strong></p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-image"><img src="assets/crown bridges.webp" alt="Crowns & Bridges"></div>
+                    <div class="service-icon"></div>
+                    <h3>Crowns & Bridges</h3>
+                    <p>Custom dental crowns and bridges to restore damaged teeth or replace missing ones — durable,
+                        natural-looking, and precision-fitted.</p>
+                    <div class="service-description">
+                        <p><strong>Materials:</strong> Porcelain, zirconia, or ceramic | <strong>Same-day crowns
+                                available</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <div class="section-inner">
+            <div class="why-grid">
+                <div class="reveal">
+                    <div class="why-image-placeholder"><img src="assets/about us picture.jpg"
+                            alt="Cairo Family Hospital"
+                            style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; z-index:0;">
+                        <div style="position:relative; z-index:1; text-align:center; padding:20px;">
+                            <p style="z-index:1; text-align:center;"><strong>Cairo Family Hospital</strong><br><small
+                                    style="opacity:0.8;">Ruiru, Kiambu County</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div><span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">Why Families Choose<br>Cairo Dental</h2>
+                    <p class="section-desc" style="margin-bottom:30px;">We provide quality, affordable, and
+                        comprehensive dental care in a warm, friendly environment — because your family deserves the
+                        very best.</p>
+                    <div class="why-features">
+                        <div class="why-feature reveal">
+                            <div class="why-feature-icon"></div>
+                            <div class="why-feature-text">
+                                <h4>Modern Dental Equipment</h4>
+                                <p>We use the latest dental technology to ensure high-quality, accurate, and comfortable
+                                    treatment every single visit.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature reveal">
+                            <div class="why-feature-icon"></div>
+                            <div class="why-feature-text">
+                                <h4>Skilled, Licensed Professionals</h4>
+                                <p>Our dental team is experienced, licensed, and passionate about delivering excellent
+                                    care across all specialties.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature reveal">
+                            <div class="why-feature-icon"></div>
+                            <div class="why-feature-text">
+                                <h4>Children-Friendly Environment</h4>
+                                <p>We take special care with our youngest patients, making dental visits comfortable,
+                                    fun, and stress-free for kids.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature reveal">
+                            <div class="why-feature-icon"></div>
+                            <div class="why-feature-text">
+                                <h4>SHA & Insurance Accepted</h4>
+                                <p>We accept SHA and are onboarding private insurers to make dental care accessible and
+                                    affordable for every family.</p>
+                            </div>
+                        </div>
+                        <div class="why-feature reveal">
+                            <div class="why-feature-icon"></div>
+                            <div class="why-feature-text">
+                                <h4>Easy Appointment Booking</h4>
+                                <p>Book your dental appointment instantly via WhatsApp — quick, convenient, and no
+                                    waiting on hold.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-bg" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-text"><span class="section-tag">About Our Dental Department</span>
+                    <h2 class="section-title">Dental Care That Puts<br>Your Family First</h2>
+                    <p class="section-desc">Cairo Family Hospital's Dental Department was established as part of our
+                        mission to provide safe, compassionate, and accessible healthcare for families in Ruiru and
+                        Kiambu County. We believe dental health is integral to overall wellbeing.</p>
+                    <p class="section-desc" style="margin-bottom:0;">Our facility is fully licensed at Level 3B by the
+                        Ministry of Health and is led by Dr. Namu David Mbogo and a dedicated team of dental
+                        professionals committed to your family's oral health.</p>
+                    <div class="about-stats">
+                        <div class="about-stat"><span>2024</span>
+                            <p>Est. serving families</p>
+                        </div>
+                        <div class="about-stat"><span>3B</span>
+                            <p>MOH licensed level</p>
+                        </div>
+                        <div class="about-stat"><span>9+</span>
+                            <p>Dental services</p>
+                        </div>
+                        <div class="about-stat"><span>24/7</span>
+                            <p>Emergency response</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right reveal">
+                    <h3 style="font-family:var(--font-display);font-size:1.2rem;color:white;margin-bottom:24px;">Our
+                        Commitment to You</h3>
+                    <ul class="about-list">
+                        <li><span class="check">✓</span>Quality, affordable dental care for every family member</li>
+                        <li><span class="check">✓</span>Patient education — we empower you with knowledge about your
+                            dental health</li>
+                        <li><span class="check">✓</span>Friendly, caring atmosphere focused on total wellbeing</li>
+                        <li><span class="check">✓</span>In-house pharmacy for immediate medication access after
+                            treatment</li>
+                        <li><span class="check">✓</span>Telemedicine via BEYON8 for dental follow-up consultations</li>
+                        <li><span class="check">✓</span>Ambulance & emergency referral support</li>
+                        <li><span class="check">✓</span>Serving Thome Road, Ruiru and the broader Kiambu County
+                            community</li>
+                    </ul><a href="https://cairo-family-hospital-1.onrender.com/about.html"
+                        style="display:inline-block;margin-top:24px;background:var(--purple);color:white;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.88rem;transition:all 0.2s;">Learn
+                        More About Us →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insurance-section">
+        <div class="section-inner" style="text-align:center;"><span class="section-tag">We Got You Covered</span>
+            <h2 class="section-title">Accepted Insurance Covers</h2>
+            <p style="color:var(--text-light);max-width:550px;margin:0 auto 30px;font-size:0.95rem;line-height:1.6;">We
+                accept SHA and are actively onboarding private insurance providers to make dental care accessible to
+                every family.</p>
+            <div class="swiper insurance-carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/first-assurance-logo-150x150.jpg" alt="First Assurance">
+                    </div>
+                    <div class="swiper-slide"><img src="assets/cic-logo-150x150.jpg" alt="CIC"></div>
+                    <div class="swiper-slide"><img src="assets/britam-150x150.jpg" alt="Britam"></div>
+                    <div class="swiper-slide"><img src="assets/apa-logo-150x150.jpg" alt="APA"></div>
+                    <div class="swiper-slide"><img src="assets/aar-insurance-150x150.jpg" alt="AAR"></div>
+                    <div class="swiper-slide"><img src="assets/heritage.jpg" alt="Heritage"></div>
+                    <div class="swiper-slide"><img src="assets/mua-logo-150x150.jpg" alt="MUA"></div>
+                    <div class="swiper-slide"><img src="assets/pacis-logo-150x150.jpg" alt="Pacis"></div>
+                    <div class="swiper-slide"><img src="assets/saham-logo-150x150.jpg" alt="Saham"></div>
+                    <div class="swiper-slide"><img src="assets/sanlam-logo-150x150.jpg" alt="Sanlam"></div>
+                    <div class="swiper-slide"><img src="assets/sedgwick-logo-150x150.jpg" alt="Sedgwick"></div>
+                    <div class="swiper-slide"><img src="assets/minet-logo-150x150.jpg" alt="Minet"></div>
+                    <div class="swiper-slide"><img src="assets/madison-logo-150x150.jpg" alt="Madison"></div>
+                    <div class="swiper-slide"><img src="assets/liaison-logo-150x150.jpg" alt="Liaison"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <p style="margin-top:35px;font-size:0.85rem;color:var(--text-light);">Not sure if your insurance is
+                accepted? <a href="https://wa.me/254758833863" target="_blank"
+                    style="color:var(--purple-solid);font-weight:600;">WhatsApp us to confirm →</a></p>
+        </div>
+    </section>
+
+    <section class="testimonials-bg" id="testimonials">
+        <div class="section-inner"><span class="section-tag">Patient Reviews</span>
+            <h2 class="section-title">What Our Patients Say</h2>
+            <p class="section-desc">Real experiences from families who trust Cairo Family Hospital with their dental
+                health. Our patients' well-being is our highest priority.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"The dental team at Cairo Family Hospital was incredible. They made me feel comfortable from the
+                        moment I walked in. My teeth cleaning was thorough and painless!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MW</div>
+                        <div>
+                            <div class="author-name">Mary Wanjiru</div>
+                            <div class="author-loc">Ruiru, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"Brought my son for his first dental visit and the pediatric dental care was wonderful — gentle,
+                        patient, and thorough. He actually wants to come back! Highly recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div>
+                            <div class="author-name">John Mwangi</div>
+                            <div class="author-loc">Thika, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"I was terrified of root canal treatment but the dental team at Cairo put me at ease completely.
+                        The procedure was smooth, and the aftercare guidance was excellent."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FN</div>
+                        <div>
+                            <div class="author-name">Faith Nyambura</div>
+                            <div class="author-loc">Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <h2>Ready for a Healthier, Brighter Smile?</h2>
+        <p>Book your dental appointment at Cairo Family Hospital today — quick, easy, and affordable care is just one
+            WhatsApp message away.</p>
+        <div class="book-btns"><a
+                href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital%2C%20I%20would%20like%20to%20book%20a%20dental%20appointment."
+                target="_blank" class="btn-white">Book via WhatsApp</a><a href="tel:+254758833863"
+                class="btn-outline-white">Call Us Now</a></div>
+    </section>
+
+    <section id="contact">
+        <div class="section-inner"><span class="section-tag">Contact Us</span>
+            <h2 class="section-title">Get in Touch With Us</h2>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-info reveal">
+                        <div class="contact-item">
+                            <div class="contact-icon">Tel</div>
+                            <div>
+                                <h4>Phone</h4><a href="tel:+254758833863">+254 758 833 863</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">Email</div>
+                            <div>
+                                <h4>Email</h4><a
+                                    href="mailto:info@cairofamilyhospital.co.ke">info@cairofamilyhospital.co.ke</a><br><a
+                                    href="mailto:cairohospital000@gmail.com">cairohospital000@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">Map</div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Thome Road, Plot No. 86200<br>Ruiru, Kiambu County, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">Hours</div>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <table class="hours-table">
+                                    <tr>
+                                        <td>Monday – Friday</td>
+                                        <td>8:00am – 5:00pm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saturday</td>
+                                        <td>8:00am – 4:00pm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sunday</td>
+                                        <td>9:00am – 4:00pm</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-wrap reveal"><iframe
+                            src="https://maps.google.com/maps?q=Ruiru%2C%20Kiambu%20County%2C%20Kenya&t=m&z=14&output=embed&iwloc=near"
+                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                </div>
+                <div class="contact-form reveal">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-row">
+                        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"
+                                id="fullName"></div>
+                        <div class="form-group"><label>Phone Number</label><input type="tel"
+                                placeholder="+254 700 000 000" id="phoneNumber"></div>
+                    </div>
+                    <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"
+                            id="emailAddress"></div>
+                    <div class="form-group"><label>Dental Service</label><select id="dentalService">
+                            <option value="">Select a service...</option>
+                            <option>Dental Cleaning</option>
+                            <option>Teeth Whitening</option>
+                            <option>Root Canal Treatment</option>
+                            <option>Dental Fillings</option>
+                            <option>Dental Implants</option>
+                            <option>Dental Braces</option>
+                            <option>Pediatric Dentistry</option>
+                            <option>Crowns & Bridges</option>
+                            <option>Dentures</option>
+                            <option>General Consultation</option>
+                        </select></div>
+                    <div class="form-group"><label>Message (Optional)</label><textarea id="message"
+                            placeholder="Tell us more about your dental concern..."></textarea></div>
+                    <button class="form-submit" id="submitBtn">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand"><a href="https://cairo-family-hospital-1.onrender.com/index.html"
+                        class="logo"><span class="logo-main">Cairo Family Hospital</span><span class="logo-sub">Dental
+                            Department · Ruiru Ltd</span></a>
+                    <p>Your trusted partner in family dental health. Providing quality, compassionate, and affordable
+                        dental care in Ruiru, Kiambu County since 2024.</p>
+                    <div class="footer-social"><a href="https://www.facebook.com/profile.php?id=100094585454733"
+                            target="_blank" title="Facebook">f</a><a
+                            href="https://www.instagram.com/cairo_family_hospital" target="_blank"
+                            title="Instagram">ig</a><a href="https://www.tiktok.com/@cairo.family.hosp" target="_blank"
+                            title="TikTok">tt</a><a href="https://wa.me/254758833863" target="_blank"
+                            title="WhatsApp">wa</a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                        <li><a href="pharmacy.html">Pharmacy</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Dental Services</h4>
+                    <ul>
+                        <li><a href="#services">Dental Cleaning</a></li>
+                        <li><a href="#services">Teeth Whitening</a></li>
+                        <li><a href="#services">Root Canal</a></li>
+                        <li><a href="#services">Dental Fillings</a></li>
+                        <li><a href="#services">Implants & Braces</a></li>
+                        <li><a href="#services">Pediatric Dentistry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="tel:+254758833863">+254 758 833 863</a></li>
+                        <li><a href="mailto:info@cairofamilyhospital.co.ke">info@cairofamilyhospital.co.ke</a></li>
+                        <li><a href="#">Thome Rd, Plot 86200, Ruiru</a></li>
+                        <li><a href="https://wa.me/254758833863" target="_blank">WhatsApp Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><span>© 2024 Cairo Family Hospital Ruiru Ltd. All rights
+                    reserved.</span><span>Dental care designed with ❤️ for families in Ruiru &amp; Kiambu County</span>
+            </div>
+        </div>
+    </footer>
+    <button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="dental.js"></script>
+</body>
+
+</html>

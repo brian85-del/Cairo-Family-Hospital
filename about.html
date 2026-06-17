@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description"
         content="Learn about Cairo Family Hospital Ruiru Ltd — our mission, values, services, and commitment to providing ethical, affordable, and compassionate healthcare in Ruiru, Kiambu County.">
     <meta name="keywords"
@@ -14,6 +14,71 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional inline fixes to ensure mobile navbar works even if style.css has issues */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: calc(100% + 12px) !important;
+                left: 16px !important;
+                right: 16px !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(16px) !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 8px !important;
+                padding: 20px !important;
+                border-radius: 20px !important;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15) !important;
+                z-index: 999 !important;
+                border: 1px solid rgba(128, 0, 128, 0.2) !important;
+                opacity: 0 !important;
+                transform: translateY(-10px) !important;
+                transition: opacity 0.25s ease, transform 0.25s ease !important;
+                pointer-events: none !important;
+            }
+
+            .nav-links.show {
+                display: flex !important;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                pointer-events: auto !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                padding-left: 24px !important;
+                background: #faf5fa !important;
+                width: 100% !important;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text strong {
+                font-size: 14px;
+            }
+
+            .logo-text span {
+                font-size: 9px;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +103,7 @@
         </div>
     </div>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (FIXED: removed inline onclick, added proper structure) -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo">
@@ -48,13 +113,25 @@
                     <span>Ruiru Ltd — Kiambu County</span>
                 </div>
             </a>
-            <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
-                <span></span><span></span><span></span>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
-                <a href="services.html">Services</a>
+                <!-- Services dropdown starts here -->
+                <div class="dropdown" id="servicesDropdown">
+                    <a href="services.html" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#general">General Medicine</a>
+                        <a href="dental.html">Dental</a>
+                        <a href="paediatrics.html">Pediatrics</a>
+                        <a href="maternity.html">Maternity</a>
+                    </div>
+                </div>
+                <!-- End of Services dropdown -->
                 <a href="pharmacy.html">Pharmacy</a>
                 <a href="contact.html">Contact</a>
                 <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
@@ -281,7 +358,8 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/doctor.JPG" alt="Dr. Namu David Mbogo">
+                        <img src="assets/doctor.JPG" alt="Dr. Namu David Mbogo"
+                            onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80'">
                     </div>
                     <div class="team-info">
                         <h4>Dr. Namu David Mbogo</h4>
@@ -292,7 +370,8 @@
                 </div>
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/nurse.JPG" alt="Nursing and clinical team">
+                        <img src="assets/nurse.JPG" alt="Nursing and clinical team"
+                            onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80'">
                     </div>
                     <div class="team-info">
                         <h4>Nursing &amp; Clinical Staff</h4>
@@ -303,7 +382,8 @@
                 </div>
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/phar.JPG" alt="Pharmacy and laboratory team">
+                        <img src="assets/phar.JPG" alt="Pharmacy and laboratory team"
+                            onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80'">
                     </div>
                     <div class="team-info">
                         <h4>Pharmacy &amp; Laboratory</h4>
@@ -384,7 +464,7 @@
                     <p>The care I received at Cairo Family Hospital was exceptional. The staff was professional and made
                         me feel at ease throughout my treatment.</p>
                     <div class="testi-author">
-                        <div class="testi-avatar"><img src="assets/testimonial user.png" alt="Mary Wanjiru">MW</div>
+                        <div class="testi-avatar">MW</div>
                         <div>
                             <strong>Mary Wanjiru</strong>
                             <span>Ruiru, Kenya</span>
@@ -397,7 +477,7 @@
                     <p>The pediatric team was wonderful with my child, providing gentle and thorough care. I highly
                         recommend Cairo Family Hospital to all parents!</p>
                     <div class="testi-author">
-                        <div class="testi-avatar"><img src="assets/index testimonial.png" alt="John Mwangi">JM</div>
+                        <div class="testi-avatar">JM</div>
                         <div>
                             <strong>John Mwangi</strong>
                             <span>Thika, Kenya</span>
@@ -410,7 +490,7 @@
                     <p>The emergency care team responded quickly and saved my life. I am deeply grateful for their
                         expertise, speed, and genuine compassion.</p>
                     <div class="testi-author">
-                        <div class="testi-avatar"><img src="assets/testimonial 1.png" alt="Faith Nyambura">FN</div>
+                        <div class="testi-avatar">FN</div>
                         <div>
                             <strong>Faith Nyambura</strong>
                             <span>Nairobi, Kenya</span>
@@ -458,8 +538,6 @@
                     <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
                     <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
                     <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms &amp; Conditions</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -469,7 +547,6 @@
                     </li>
                     <li><a href="services.html"><i class="fas fa-chevron-right"></i> Inpatient &amp; Maternity</a></li>
                     <li><a href="services.html"><i class="fas fa-chevron-right"></i> Laboratory &amp; Pharmacy</a></li>
-                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Specialist Consultations</a></li>
                     <li><a href="services.html"><i class="fas fa-chevron-right"></i> Emergency &amp; Ambulance</a></li>
                 </ul>
             </div>
@@ -480,8 +557,6 @@
                 </p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:info@cairofamilyhospital.co.ke"
                         style="color:inherit;">info@cairofamilyhospital.co.ke</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:cairohospital000@gmail.com"
-                        style="color:inherit;">cairohospital000@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -494,7 +569,92 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="script.js"></script>
+    <!-- Fixed JavaScript for mobile navbar -->
+    <script>
+        (function () {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+            const dropdown = document.getElementById('servicesDropdown');
+
+            function toggleMenu() {
+                if (!navLinks) return;
+                const expanded = navLinks.classList.contains('show');
+                navLinks.classList.toggle('show');
+                if (hamburger) hamburger.classList.toggle('active');
+                if (hamburger) hamburger.setAttribute('aria-expanded', !expanded);
+                // Close dropdown when menu closes
+                if (!expanded && dropdown && dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+
+            // Mobile dropdown toggle
+            if (dropdown) {
+                const toggleLink = dropdown.querySelector('.dropdown-toggle');
+                if (toggleLink) {
+                    toggleLink.addEventListener('click', function (e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+            }
+
+            // Close menu when clicking a link (except dropdown toggle on mobile)
+            const allLinks = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
+            allLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+                    const isClickInside = navLinks.contains(event.target) || (hamburger && hamburger.contains(event.target));
+                    if (!isClickInside) {
+                        toggleMenu();
+                    }
+                }
+            });
+
+            // Reset on window resize
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    if (navLinks && navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        if (hamburger) hamburger.classList.remove('active');
+                    }
+                    if (dropdown && dropdown.classList.contains('active')) {
+                        dropdown.classList.remove('active');
+                    }
+                }
+            });
+
+            // Back to top button visibility
+            const backTop = document.getElementById('backTop');
+            if (backTop) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backTop.classList.add('visible');
+                    } else {
+                        backTop.classList.remove('visible');
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>

@@ -75,6 +75,9 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         document.getElementById('navLinks')?.classList.remove('open');
+        document.querySelectorAll('.nav-links .dropdown.active').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
     });
 });
 
@@ -255,3 +258,264 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', handleSubmit);
 }
+// Mobile dropdown toggle
+function initMobileDropdown() {
+    const dropdowns = document.querySelectorAll('.nav-links .dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+                const isActive = dropdown.classList.contains('active');
+                if (!isActive) {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-links .dropdown.active').forEach(activeDropdown => {
+                        if (activeDropdown !== dropdown) activeDropdown.classList.remove('active');
+                    });
+                    dropdown.classList.add('active');
+                }
+            }
+        });
+    });
+}
+
+// Call this after your existing toggleNav function
+document.addEventListener('DOMContentLoaded', function () {
+    initMobileDropdown();
+});
+
+// Also update on window resize
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+        document.querySelectorAll('.nav-links .dropdown.active').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
+
+(function () {
+    // ========== MOBILE NAVBAR FUNCTIONALITY ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    const dropdown = document.getElementById('servicesDropdown');
+
+    function toggleMenu() {
+        if (navLinks) {
+            navLinks.classList.toggle('show');
+            if (hamburger) hamburger.classList.toggle('active');
+        }
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
+
+    // Mobile dropdown handling
+    if (dropdown) {
+        const toggleLink = dropdown.querySelector('.dropdown-toggle');
+        if (toggleLink) {
+            toggleLink.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+    }
+
+    // Close menu when clicking on links
+    document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (e) {
+        if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+            if (!navLinks.contains(e.target) && !hamburger?.contains(e.target)) {
+                toggleMenu();
+            }
+        }
+    });
+
+    // ========== HERO SLIDER FUNCTIONALITY ==========
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const slidesContainer = document.getElementById('heroSlides');
+
+    function updateSlider() {
+        if (slidesContainer) {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+
+    document.getElementById('prevSlide')?.addEventListener('click', prevSlide);
+    document.getElementById('nextSlide')?.addEventListener('click', nextSlide);
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', function () {
+            currentSlide = idx;
+            updateSlider();
+        });
+    });
+
+    // Auto slide every 5 seconds
+    let autoInterval = setInterval(nextSlide, 5000);
+    const hero = document.querySelector('.hero');
+
+    if (hero) {
+        hero.addEventListener('mouseenter', function () {
+            clearInterval(autoInterval);
+        });
+        hero.addEventListener('mouseleave', function () {
+            autoInterval = setInterval(nextSlide, 5000);
+        });
+    }
+
+    // ========== SERVICE FINDER FUNCTIONALITY ==========
+    let selectedService = "General Medicine";
+
+    document.querySelectorAll('.chip').forEach(chip => {
+        chip.addEventListener('click', function () {
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('sel'));
+            this.classList.add('sel');
+            selectedService = this.getAttribute('data-service') || this.innerText;
+        });
+    });
+
+    const confirmBtn = document.getElementById('confirmServiceBtn');
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function () {
+            window.location.href = `services.html?service=${encodeURIComponent(selectedService)}`;
+        });
+    }
+
+    // ========== INSURANCE CAROUSEL INITIALIZATION ==========
+    if (document.querySelector('.insurance-carousel')) {
+        new Swiper('.insurance-carousel', {
+            loop: true,
+            speed: 600,
+            autoplay: { delay: 2500, disableOnInteraction: false },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            breakpoints: {
+                320: { slidesPerView: 2, spaceBetween: 15 },
+                576: { slidesPerView: 3, spaceBetween: 20 },
+                768: { slidesPerView: 4, spaceBetween: 25 },
+                1024: { slidesPerView: 5, spaceBetween: 30 }
+            }
+        });
+    }
+
+    // ========== BACK TO TOP BUTTON ==========
+    const backTop = document.getElementById('backTop');
+    if (backTop) {
+        window.addEventListener('scroll', function () {
+            backTop.classList.toggle('visible', window.scrollY > 300);
+        });
+
+        backTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    // Mobile Navigation
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        // Toggle mobile menu
+        if (hamburger) {
+            hamburger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('open');
+                document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            });
+        }
+
+        // Handle dropdown toggles on mobile
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+
+            if (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Close other dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown && other.classList.contains('active')) {
+                            other.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+
+        // Close menu when clicking a link (except dropdown toggles)
+        const navLinksItems = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+
+                // Reset all dropdowns
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (navLinks && navLinks.classList.contains('open')) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // Prevent dropdown toggles from closing the menu
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    });
+})();

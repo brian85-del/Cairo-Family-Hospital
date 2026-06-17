@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description"
         content="Explore the full range of medical services at Cairo Family Hospital Ruiru Ltd — from general care to maternity, diagnostics, specialist clinics, inpatient care, and our dedicated medical team.">
     <meta name="keywords"
@@ -14,6 +14,197 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional inline fixes to ensure mobile navbar works even if style.css has issues */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: calc(100% + 12px) !important;
+                left: 16px !important;
+                right: 16px !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(16px) !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 8px !important;
+                padding: 20px !important;
+                border-radius: 20px !important;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15) !important;
+                z-index: 999 !important;
+                border: 1px solid rgba(128, 0, 128, 0.2) !important;
+                opacity: 0 !important;
+                transform: translateY(-10px) !important;
+                transition: opacity 0.25s ease, transform 0.25s ease !important;
+                pointer-events: none !important;
+            }
+
+            .nav-links.show {
+                display: flex !important;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                pointer-events: auto !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                padding-left: 24px !important;
+                background: #faf5fa !important;
+                width: 100% !important;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text strong {
+                font-size: 14px;
+            }
+
+            .logo-text span {
+                font-size: 9px;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+        }
+
+        /* Page hero styles */
+        .page-hero {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(128, 0, 128, 0.75) 60%, rgba(14, 165, 233, 0.6) 100%);
+            position: relative;
+        }
+
+        .page-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .page-hero-inner .section-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+        }
+
+        .page-hero-inner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .page-hero-inner p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        /* Finder styles */
+        .finder {
+            background: var(--gradient-finder);
+            padding: 20px;
+        }
+
+        .finder-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .finder h3 {
+            color: #fff;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        .finder-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chip:hover,
+        .chip.sel {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .finder-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .finder-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +229,7 @@
         </div>
     </div>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (FIXED: removed inline onclick, added proper structure) -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo">
@@ -48,19 +239,30 @@
                     <span>Ruiru Ltd — Kiambu County</span>
                 </div>
             </a>
-            <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
-                <span></span><span></span><span></span>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="services.html" class="active">Services</a>
+                <!-- Services dropdown starts here -->
+                <div class="dropdown" id="servicesDropdown">
+                    <a href="services.html" class="dropdown-toggle active">Services <i
+                            class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#general">General Medicine</a>
+                        <a href="dental.html">Dental</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="maternity.html">Maternity</a>
+                    </div>
+                </div>
+                <!-- End of Services dropdown -->
                 <a href="pharmacy.html">Pharmacy</a>
                 <a href="contact.html">Contact</a>
                 <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
-                    target="_blank" class="btn-appt">
-                    <i class="fab fa-whatsapp"></i> Book Appointment
-                </a>
+                    target="_blank" class="btn-appt"><i class="fab fa-whatsapp"></i> Book Appointment</a>
             </div>
         </div>
     </nav>
@@ -84,18 +286,19 @@
     <!-- QUICK SERVICE FINDER -->
     <div class="finder">
         <div class="finder-inner">
-            <h3>Find a Service:</h3>
+            <h3><i class="fas fa-search"></i> Find a Service:</h3>
             <div class="finder-chips">
-                <div class="chip sel" onclick="selectChip(this)">General Medicine</div>
-                <div class="chip" onclick="selectChip(this)">Pediatrics</div>
-                <div class="chip" onclick="selectChip(this)">Maternity Care</div>
-                <div class="chip" onclick="selectChip(this)">Emergency Care</div>
-                <div class="chip" onclick="selectChip(this)">Dental</div>
-                <div class="chip" onclick="selectChip(this)">Diagnostic Imaging</div>
-                <div class="chip" onclick="selectChip(this)">Pharmacy</div>
-                <div class="chip" onclick="selectChip(this)">Specialist Consultation</div>
+                <div class="chip sel" data-service="General Medicine">General Medicine</div>
+                <div class="chip" data-service="Pediatrics">Pediatrics</div>
+                <div class="chip" data-service="Maternity Care">Maternity Care</div>
+                <div class="chip" data-service="Emergency Care">Emergency Care</div>
+                <div class="chip" data-service="Dental">Dental</div>
+                <div class="chip" data-service="Diagnostic Imaging">Diagnostic Imaging</div>
+                <div class="chip" data-service="Pharmacy">Pharmacy</div>
+                <div class="chip" data-service="Specialist Consultation">Specialist Consultation</div>
             </div>
-            <button class="finder-btn" onclick="confirmService()">Confirm Selection →</button>
+            <button class="finder-btn" id="confirmServiceBtn">Confirm Selection <i
+                    class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
@@ -260,7 +463,8 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img class="team-img" src="assets/doctor.JPG" alt="Dr. Namu David Mbogo" loading="lazy">
+                        <img class="team-img" src="assets/doctor.JPG" alt="Dr. Namu David Mbogo" loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80'">
                     </div>
                     <div class="team-body">
                         <h4>Dr. Namu David Mbogo</h4>
@@ -272,7 +476,8 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img class="team-img" src="assets/phar.JPG" alt="General Practitioners" loading="lazy">
+                        <img class="team-img" src="assets/phar.JPG" alt="General Practitioners" loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=400&q=80'">
                     </div>
                     <div class="team-body">
                         <h4>General Practitioners</h4>
@@ -284,7 +489,8 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img class="team-img" src="assets/background.png" alt="Specialist Consultants" loading="lazy">
+                        <img class="team-img" src="assets/background.png" alt="Specialist Consultants" loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80'">
                     </div>
                     <div class="team-body">
                         <h4>Specialist Consultants</h4>
@@ -296,7 +502,8 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img class="team-img" src="assets/nurse.JPG" alt="Pharmacy and Nursing Team" loading="lazy">
+                        <img class="team-img" src="assets/nurse.JPG" alt="Pharmacy and Nursing Team" loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80'">
                     </div>
                     <div class="team-body">
                         <h4>Pharmacy &amp; Nursing Team</h4>
@@ -393,8 +600,6 @@
                     <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
                     <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
                     <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms &amp; Conditions</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -425,10 +630,126 @@
         </div>
     </footer>
 
-    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-        aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <script src="script.js"></script>
+    <!-- Fixed JavaScript for mobile navbar and page functionality -->
+    <script>
+        (function () {
+            // ========== MOBILE NAVBAR FIX ==========
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+            const dropdown = document.getElementById('servicesDropdown');
+
+            function toggleMenu() {
+                if (!navLinks) return;
+                const expanded = navLinks.classList.contains('show');
+                navLinks.classList.toggle('show');
+                if (hamburger) hamburger.classList.toggle('active');
+                if (hamburger) hamburger.setAttribute('aria-expanded', !expanded);
+                if (!expanded && dropdown && dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+
+            if (dropdown) {
+                const toggleLink = dropdown.querySelector('.dropdown-toggle');
+                if (toggleLink) {
+                    toggleLink.addEventListener('click', function (e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+            }
+
+            const allLinks = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
+            allLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('show')) {
+                    const isClickInside = navLinks.contains(event.target) || (hamburger && hamburger.contains(event.target));
+                    if (!isClickInside) {
+                        toggleMenu();
+                    }
+                }
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    if (navLinks && navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        if (hamburger) hamburger.classList.remove('active');
+                    }
+                    if (dropdown && dropdown.classList.contains('active')) {
+                        dropdown.classList.remove('active');
+                    }
+                }
+            });
+
+            // ========== SERVICE FINDER FUNCTIONALITY ==========
+            let selectedService = "General Medicine";
+            const chips = document.querySelectorAll('.chip');
+            chips.forEach(chip => {
+                chip.addEventListener('click', function () {
+                    chips.forEach(c => c.classList.remove('sel'));
+                    this.classList.add('sel');
+                    selectedService = this.getAttribute('data-service') || this.innerText;
+                });
+            });
+
+            const confirmBtn = document.getElementById('confirmServiceBtn');
+            if (confirmBtn) {
+                confirmBtn.addEventListener('click', function () {
+                    window.location.href = `contact.html?service=${encodeURIComponent(selectedService)}`;
+                });
+            }
+
+            // ========== BACK TO TOP BUTTON ==========
+            const backTop = document.getElementById('backTop');
+            if (backTop) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backTop.classList.add('visible');
+                    } else {
+                        backTop.classList.remove('visible');
+                    }
+                });
+                backTop.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ========== URL PARAMETER HANDLING FOR SERVICE SELECTION ==========
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            if (serviceParam) {
+                chips.forEach(chip => {
+                    if (chip.getAttribute('data-service') === serviceParam || chip.innerText === serviceParam) {
+                        chips.forEach(c => c.classList.remove('sel'));
+                        chip.classList.add('sel');
+                        selectedService = serviceParam;
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
