@@ -967,7 +967,7 @@
         </div>
         <div class="topbar-actions">
             <a href="pharmacy.html" target="_blank">← View Live Pharmacy</a>
-            <a href="logins.html" onclick="signOut()" style="color:#fca5a5;">Sign Out</a>
+            <a href="#" onclick="signOut(); return false;" style="color:#fca5a5;">Sign Out</a>
         </div>
     </div>
 
@@ -1271,6 +1271,27 @@
         const SUPABASE_URL = 'https://yoixpvrzhgvfbbfjgegh.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_qfqOwEAJA2pM3vTlsymAKA_mPGR19tk';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        /* ══════════════════════════════════════════════════════
+           AUTH GUARD — redirect to logins if not signed in as admin
+        ══════════════════════════════════════════════════════ */
+        (async () => {
+            const { data } = await supabaseClient.auth.getSession();
+            if (!data?.session) {
+                window.location.replace('logins.html');
+                return;
+            }
+            // Also verify they still have admin role
+            const { data: profile } = await supabaseClient
+                .from('profiles')
+                .select('role')
+                .eq('id', data.session.user.id)
+                .single();
+            if (!profile || profile.role !== 'admin') {
+                await supabaseClient.auth.signOut();
+                window.location.replace('logins.html');
+            }
+        })();
 
         /* ══════════════════════════════════════════════════════
            STATE
@@ -1807,8 +1828,12 @@
            SIGN OUT
         ══════════════════════════════════════════════════════ */
         async function signOut() {
-            await supabaseClient.auth.signOut();
-            window.location.href = 'logins.html';
+            try {
+                await supabaseClient.auth.signOut();
+            } catch (e) {
+                // ignore errors, still redirect
+            }
+            window.location.replace('logins.html');
         }
 
         /* ══════════════════════════════════════════════════════

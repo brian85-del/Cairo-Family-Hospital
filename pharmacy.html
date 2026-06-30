@@ -9,6 +9,7 @@
     <meta name="keywords"
         content="Cairo Family Hospital, pharmacy, medicines, health products, Ruiru, Kenya, online pharmacy, prescription drugs">
     <title>Cairo Family Hospital - Online Pharmacy</title>
+    <link rel="icon" type="image/jpeg" href="assets/cairo favicon.JPG" />
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
@@ -160,7 +161,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 12px;
         }
 
         .logo {
@@ -168,6 +169,7 @@
             align-items: center;
             gap: 12px;
             flex-shrink: 0;
+            min-width: 0;
         }
 
         .logo-icon {
@@ -180,10 +182,12 @@
             justify-content: center;
             color: #fff;
             font-size: 22px;
+            flex-shrink: 0;
         }
 
         .logo-text {
             line-height: 1.2;
+            min-width: 0;
         }
 
         .logo-text strong {
@@ -191,12 +195,16 @@
             font-family: 'Playfair Display', serif;
             font-size: 18px;
             color: var(--primary-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .logo-text span {
             font-size: 11px;
             color: var(--gray);
             letter-spacing: .4px;
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -260,6 +268,14 @@
             background: var(--primary);
             border-radius: 1px;
             transition: transform .25s ease, opacity .25s ease;
+        }
+
+        /* ── NAV ACTIONS GROUP ── */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         /* ── CART NAV BUTTON ── */
@@ -635,6 +651,85 @@
 
         .prod-badge.sale {
             background: #16a34a;
+        }
+
+        .prod-badge.api {
+            background: #0EA5E9;
+        }
+
+        .prod-badge.tbd {
+            background: #D97706;
+        }
+
+        .avatar-letter {
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .avatar-letter-lg {
+            width: 64px;
+            height: 64px;
+            font-size: 28px;
+        }
+
+        .avatar-letter-md {
+            width: 44px;
+            height: 44px;
+            font-size: 18px;
+        }
+
+        .price-disclaimer {
+            font-size: 10.5px;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        .fallback-card {
+            border: 1.5px dashed var(--action);
+            background: #F0F9FF;
+        }
+
+        .fallback-card .prod-body {
+            gap: 10px;
+        }
+
+        .fallback-card h4 {
+            color: var(--secondary);
+        }
+
+        .fallback-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .fallback-input:focus {
+            outline: none;
+            border-color: var(--action);
+        }
+
+        .cart-pending-note {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+            font-size: 12px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .prod-body {
@@ -1225,15 +1320,91 @@
             color: var(--accent);
         }
 
-        /* ── MOBILE NAV ── */
+        /* ══════════════════════════════════════════════════════
+           MOBILE NAV — KEY FIX AREA
+        ══════════════════════════════════════════════════════ */
         @media(max-width:900px) {
+
+            /* Tighten up the navbar itself */
+            nav {
+                margin: 12px auto 0;
+                max-width: 94%;
+                padding: 8px 0;
+            }
+
+            .nav-inner {
+                padding: 0 14px;
+                gap: 8px;
+            }
+
+            /* Shrink the logo on mobile */
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+            .logo-text strong {
+                font-size: 14px;
+            }
+
+            .logo-text span {
+                display: none;
+                /* hide subtitle on mobile */
+            }
+
+            /* Actions row stays compact */
+            .nav-actions {
+                gap: 6px;
+            }
+
+            /* Collapse user chip to icon + dot only on small screens */
+            .nav-user-chip {
+                padding: 7px 10px;
+                gap: 5px;
+            }
+
+            /* Hide the text label, show only dot + person icon */
+            .nav-user-chip #navUserLabel {
+                display: none;
+            }
+
+            /* Add a person emoji as visual cue */
+            .nav-user-chip::after {
+                content: '👤';
+                font-size: 16px;
+                line-height: 1;
+            }
+
+            /* Slightly smaller cart button */
+            .cart-nav-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            /* Hamburger always visible */
+            .hamburger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                z-index: 10001;
+                color: var(--primary);
+                order: -1;
+                /* hamburger first after logo */
+            }
+
+            /* Mobile slide-down nav */
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: fixed;
-                top: 84px;
-                left: 5%;
-                right: 5%;
+                top: 72px;
+                left: 3%;
+                right: 3%;
                 width: auto;
                 background: #fff;
                 padding: 18px 16px;
@@ -1259,18 +1430,33 @@
                 padding: 14px 12px;
                 border-radius: 14px;
             }
+        }
+
+        /* Extra small phones — even tighter */
+        @media(max-width:400px) {
+            .nav-inner {
+                padding: 0 10px;
+                gap: 6px;
+            }
+
+            .logo-text strong {
+                font-size: 13px;
+                max-width: 110px;
+            }
+
+            .cart-nav-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+            }
+
+            .nav-user-chip {
+                padding: 6px 8px;
+            }
 
             .hamburger {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 38px;
-                height: 38px;
-                background: transparent;
-                border-radius: 0;
-                box-shadow: none;
-                z-index: 10001;
-                color: var(--primary);
+                width: 32px;
+                height: 32px;
             }
         }
 
@@ -1733,6 +1919,120 @@
             background: var(--gray-light);
         }
 
+        /* ── CHECKOUT DETAILS MODAL ── */
+        .checkout-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 26000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s;
+            padding: 20px;
+        }
+
+        .checkout-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .checkout-modal {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px 32px;
+            max-width: 460px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            transition: transform .25s;
+        }
+
+        .checkout-modal-overlay.open .checkout-modal {
+            transform: scale(1);
+        }
+
+        .checkout-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+
+        .checkout-modal h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .checkout-modal-sub {
+            color: var(--text-muted);
+            font-size: 13.5px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .checkout-form-label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .checkout-summary-box {
+            width: 100%;
+            min-height: 120px;
+            max-height: 180px;
+            resize: vertical;
+            padding: 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            background: var(--light);
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .checkout-form-group {
+            margin-bottom: 16px;
+        }
+
+        .checkout-form-group label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .checkout-form-group input,
+        .checkout-form-group textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            color: var(--text);
+            background: #fff;
+            resize: vertical;
+        }
+
+        .checkout-form-group input:focus,
+        .checkout-form-group textarea:focus {
+            outline: none;
+            border-color: var(--action);
+        }
+
         /* hide Font Awesome icons */
         i.fas,
         i.fab,
@@ -1740,7 +2040,6 @@
             display: none !important;
         }
 
-        /* ── EMOJI ICONS replacement (since FA hidden) ── */
         .ei {
             display: inline-block;
             font-style: normal;
@@ -1775,21 +2074,18 @@
                 <div class="logo-text"><strong>Cairo Family Hospital</strong><span>Ruiru Ltd — Kiambu County</span>
                 </div>
             </a>
-            <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <!-- Cart + User status buttons -->
-            <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-                <button class="nav-user-chip signed-out" id="navUserChip" onclick="handleUserChipClick()"
-                    title="Account">
-                    <span class="chip-dot"></span>
-                    <span id="navUserLabel">Sign In</span>
-                </button>
+
+            <!-- Cart + Hamburger grouped together -->
+            <div class="nav-actions">
                 <button class="cart-nav-btn" id="cartNavBtn" onclick="openCart()" aria-label="Shopping cart">
                     🛒
                     <span class="cart-badge" id="cartBadge">0</span>
                 </button>
+                <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
+
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -1811,8 +2107,9 @@
                 here in Ruiru, Kiambu County.</p>
             <div class="hero-search">
                 <input type="text" id="searchInput" placeholder="Search medicines, vitamins, supplements…"
-                    oninput="filterProducts()">
-                <button onclick="filterProducts()">Search</button>
+                    oninput="filterProducts()"
+                    onkeydown="if(event.key==='Enter'){event.preventDefault();triggerSearch();}">
+                <button onclick="triggerSearch()">Search</button>
             </div>
         </div>
     </div>
@@ -2101,9 +2398,7 @@
             <h2>Need Medicines or Health Products?</h2>
             <p>Order via WhatsApp — quick, easy, and always pharmacist-verified.</p>
             <a href="https://wa.me/254758833863?text=Hello%20Cairo%20Family%20Hospital,%20I%20would%20like%20to%20order%20medicine%20from%20your%20pharmacy."
-                target="_blank">
-                Order on WhatsApp
-            </a>
+                target="_blank">Order on WhatsApp</a>
         </div>
     </div>
 
@@ -2161,19 +2456,6 @@
     <!-- CART TOAST -->
     <div class="cart-toast" id="cartToast"></div>
 
-    <!-- LOGIN REQUIRED MODAL -->
-    <div class="login-modal-overlay" id="loginModalOverlay">
-        <div class="login-modal">
-            <div class="modal-icon">🔒</div>
-            <h3>Sign In to Checkout</h3>
-            <p>You need to be signed in to complete your order. Your cart items will be saved when you return.</p>
-            <div class="modal-btn-row">
-                <button class="modal-btn-primary" onclick="goToLogin()">Sign In</button>
-                <button class="modal-btn-secondary" onclick="closeLoginModal()">Cancel</button>
-            </div>
-        </div>
-    </div>
-
     <!-- CART OVERLAY + DRAWER -->
     <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
@@ -2181,10 +2463,9 @@
             <h3>🛒 Your Cart</h3>
             <button class="cart-close" onclick="closeCart()">✕</button>
         </div>
-        <div class="cart-items" id="cartItemsList">
-            <!-- Items injected by JS -->
-        </div>
+        <div class="cart-items" id="cartItemsList"></div>
         <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div id="cartPendingNote" class="cart-pending-note" style="display:none;"></div>
             <div class="cart-subtotal-row">
                 <span>Subtotal (<span id="cartItemCount">0</span> items)</span>
                 <span id="cartSubtotalAmt">KSh 0</span>
@@ -2193,73 +2474,75 @@
                 <span>Total</span>
                 <span id="cartTotalAmt">KSh 0</span>
             </div>
-            <button class="cart-checkout-btn" onclick="handleCheckout()">
+            <button class="cart-checkout-btn" onclick="openCheckoutModal()">
                 <span>📱</span> Send Order via WhatsApp
             </button>
             <button class="cart-clear-btn" onclick="clearCart()">Clear Cart</button>
         </div>
     </div>
 
+    <!-- CHECKOUT DETAILS MODAL -->
+    <div class="checkout-modal-overlay" id="checkoutModalOverlay"
+        onclick="if(event.target===this) closeCheckoutModal()">
+        <div class="checkout-modal">
+            <button class="cart-close checkout-modal-close" onclick="closeCheckoutModal()">✕</button>
+            <h3>📋 Confirm Your Order</h3>
+            <p class="checkout-modal-sub">Review your order summary below, then add your details so our pharmacist can
+                confirm and deliver.</p>
+
+            <label class="checkout-form-label" for="checkoutSummaryText">Order Summary</label>
+            <textarea id="checkoutSummaryText" class="checkout-summary-box" readonly></textarea>
+
+            <div class="checkout-form-group">
+                <label for="checkoutName">Full Name</label>
+                <input type="text" id="checkoutName" placeholder="e.g. Jane Wanjiru">
+            </div>
+            <div class="checkout-form-group">
+                <label for="checkoutPhone">WhatsApp Number</label>
+                <input type="tel" id="checkoutPhone" placeholder="e.g. 07XX XXX XXX">
+            </div>
+            <div class="checkout-form-group">
+                <label for="checkoutAddress">Physical Delivery Address</label>
+                <textarea id="checkoutAddress" rows="2"
+                    placeholder="e.g. Thome Road, Ruiru — estate / apartment / landmark"></textarea>
+            </div>
+
+            <div class="modal-btn-row">
+                <button class="modal-btn-primary" onclick="submitCheckoutOrder()">✅ Confirm &amp; Send Order</button>
+                <button class="modal-btn-secondary" onclick="closeCheckoutModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
         aria-label="Back to top">↑</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <script>
-        /* ══════════════════════════════════════════════════════
-           SUPABASE CONFIGURATION
-        ══════════════════════════════════════════════════════ */
-        const SUPABASE_URL = 'https://yoixpvrzhgvfbbfjgegh.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_qfqOwEAJA2pM3vTlsymAKA_mPGR19tk';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        /* ══════════════════════════════════════════════════════
-           STATE MANAGEMENT
-        ══════════════════════════════════════════════════════ */
         let products = [];
         let currentCat = 'all';
         let currentSearch = '';
         let currentSort = 'default';
+        let searchDebounceTimer = null;
+        let fallbackQty = 1;
 
-        /* ══════════════════════════════════════════════════════
-           ASYNC DATA FETCH ENGINE
-        ══════════════════════════════════════════════════════ */
-        async function fetchLiveInventory() {
-            try {
-                const { data, error } = await supabaseClient
-                    .from('medicine')
-                    .select('*')
-                    .order('created_at', { ascending: false });
-
-                if (error) throw error;
-
-                products = (data || []).map(item => ({
-                    id: item.id,
-                    name: item.name,
-                    cat: item.cat,
-                    badge: item.badge || null,
-                    badgeClass: item.badgeClass || '',
-                    img: item.image_url || null,
-                    desc: item.desc || '',
-                    price: item.price,
-                    oldPrice: item.old_price || null
-                }));
-
-                renderProducts();
-
-            } catch (err) {
-                console.error('Failed to download inventory:', err.message);
-                const grid = document.getElementById('productsGrid');
-                grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--text-muted);">
-                    <p style="font-size:16px;font-weight:600;color:var(--danger);">⚠️ Connectivity Error</p>
-                    <p style="font-size:14px;margin-top:6px;">Unable to update catalog cache. Please reach out to us directly over WhatsApp.</p>
-                </div>`;
-            }
+        // Default catalog — shown automatically on page load (no backend required).
+        function loadDefaultInventory() {
+            products = [
+                { id: 1, name: 'Paracetamol 500mg Tablets', cat: 'otc', badge: null, badgeClass: '', img: null, desc: 'Fast relief from pain and fever. Pack of 20 tablets.', price: 'KSh 150', oldPrice: null },
+                { id: 2, name: 'Amoxicillin 500mg Capsules', cat: 'prescription', badge: 'Rx', badgeClass: 'rx', img: null, desc: 'Broad-spectrum antibiotic. Requires a valid prescription.', price: 'KSh 450', oldPrice: null },
+                { id: 3, name: 'Ibuprofen 400mg Tablets', cat: 'otc', badge: null, badgeClass: '', img: null, desc: 'Anti-inflammatory relief for pain, fever, and swelling. Pack of 20.', price: 'KSh 200', oldPrice: null },
+                { id: 4, name: 'Cetirizine 10mg Tablets', cat: 'otc', badge: null, badgeClass: '', img: null, desc: 'Non-drowsy antihistamine for allergy and hay fever relief.', price: 'KSh 180', oldPrice: null },
+                { id: 5, name: 'Multivitamin Complex', cat: 'vitamins', badge: null, badgeClass: '', img: null, desc: 'Daily multivitamin & mineral supplement, 30 capsules.', price: 'KSh 350', oldPrice: null },
+                { id: 6, name: 'Metformin 500mg Tablets', cat: 'chronic', badge: 'Rx', badgeClass: 'rx', img: null, desc: 'Blood sugar control for type 2 diabetes. Requires prescription.', price: 'KSh 600', oldPrice: null },
+                { id: 7, name: 'Oral Rehydration Salts (ORS)', cat: 'firstaid', badge: null, badgeClass: '', img: null, desc: 'Rehydration sachets for diarrhoea and fluid loss.', price: 'KSh 120', oldPrice: null },
+                { id: 8, name: 'Sensodyne Sensitive Toothpaste', cat: 'dental', badge: null, badgeClass: '', img: null, desc: 'Relief and protection for sensitive teeth, 100ml.', price: 'KSh 380', oldPrice: null },
+                { id: 9, name: 'Folic Acid 5mg Tablets', cat: 'maternal', badge: null, badgeClass: '', img: null, desc: 'Essential prenatal supplement, pack of 30.', price: 'KSh 150', oldPrice: null },
+                { id: 10, name: 'Diclofenac Gel 1%', cat: 'otc', badge: null, badgeClass: '', img: null, desc: 'Topical anti-inflammatory gel for muscle and joint pain.', price: 'KSh 250', oldPrice: null }
+            ];
+            renderProducts();
         }
 
-        /* ══════════════════════════════════════════════════════
-           DYNAMIC PRODUCT RENDERING ENGINE
-        ══════════════════════════════════════════════════════ */
         function renderProducts() {
             let filtered = products.filter(p => {
                 const matchCat = currentCat === 'all' || p.cat === currentCat;
@@ -2267,7 +2550,6 @@
                     p.desc.toLowerCase().includes(currentSearch.toLowerCase());
                 return matchCat && matchSearch;
             });
-
             if (currentSort === 'az') filtered.sort((a, b) => a.name.localeCompare(b.name));
             if (currentSort === 'za') filtered.sort((a, b) => b.name.localeCompare(a.name));
 
@@ -2286,39 +2568,28 @@
                 <div class="prod-card">
                   <div class="prod-img">
                     ${p.badge ? `<span class="prod-badge ${p.badgeClass}">${p.badge}</span>` : ''}
-                    ${p.img
-                    ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<span style=\\'font-size:52px\\'>💊</span>'">`
-                    : `<span style="font-size:52px; padding: 20px 0;">💊</span>`
-                }
+                    ${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<span class=\\'avatar-letter avatar-letter-lg\\'>${firstLetter(p.name)}</span>'">` : `<span class="avatar-letter avatar-letter-lg">${firstLetter(p.name)}</span>`}
                   </div>
                   <div class="prod-body">
                     <div class="prod-cat">${getCatLabel(p.cat)}</div>
                     <h4>${p.name}</h4>
                     <p>${p.desc}</p>
                     <div class="prod-footer">
-                      <div class="prod-price">
-                        ${p.oldPrice ? `<s>${p.oldPrice}</s>` : ''}
-                        ${p.price}
-                      </div>
-                      <button class="btn-add-cart" id="atc-${p.id}" onclick="addToCart(${JSON.stringify(p).replace(/"/g, '&quot;')})">
-                        🛒 Add
-                      </button>
+                      <div class="prod-price">${p.oldPrice ? `<s>${p.oldPrice}</s>` : ''}${p.price}</div>
+                      <button class="btn-add-cart" id="atc-${p.id}" onclick="addToCart(${JSON.stringify(p).replace(/"/g, '&quot;')})">🛒 Add</button>
                     </div>
                   </div>
                 </div>
             `).join('');
         }
 
+        function firstLetter(name) {
+            const ch = (name || '?').trim().charAt(0).toUpperCase();
+            return ch || '?';
+        }
+
         function getCatLabel(cat) {
-            const map = {
-                otc: 'OTC Medicine',
-                prescription: 'Prescription',
-                maternal: 'Maternal & Baby',
-                vitamins: 'Vitamins',
-                dental: 'Dental',
-                chronic: 'Chronic Disease',
-                firstaid: 'First Aid'
-            };
+            const map = { otc: 'OTC Medicine', prescription: 'Prescription', maternal: 'Maternal & Baby', vitamins: 'Vitamins', dental: 'Dental', chronic: 'Chronic Disease', firstaid: 'First Aid' };
             return map[cat] || cat;
         }
 
@@ -2330,39 +2601,200 @@
         }
 
         function filterProducts() {
-            currentSearch = document.getElementById('searchInput').value;
-            renderProducts();
+            currentSearch = document.getElementById('searchInput').value.trim();
+            clearTimeout(searchDebounceTimer);
+            if (!currentSearch) { renderProducts(); return; }
+            searchDebounceTimer = setTimeout(() => { searchMedicineHybrid(currentSearch); }, 450);
         }
 
-        function sortProducts(val) {
-            currentSort = val;
-            renderProducts();
+        function triggerSearch() {
+            currentSearch = document.getElementById('searchInput').value.trim();
+            clearTimeout(searchDebounceTimer);
+            if (!currentSearch) { renderProducts(); return; }
+            searchMedicineHybrid(currentSearch);
         }
 
-        /* ══════════════════════════════════════════════════════
-           CART SYSTEM
-        ══════════════════════════════════════════════════════ */
+        // ── LOCAL PRICING MATRIX ──
+        // openFDA has no pricing data, so we estimate a baseline price from
+        // common drug-name keywords. These are *estimates only* and are always
+        // shown with a disclaimer until pharmacy staff confirm the real price.
+        function getLocalPriceEstimate(name) {
+            const n = (name || '').toLowerCase();
+            if (n.includes('amox') || n.includes('cef') || n.includes('augmentin') || n.includes('ciprofloxacin') || n.includes('flagyl') || n.includes('metronidazole') || n.includes('azithromycin')) return 450;
+            if (n.includes('para') || n.includes('dol') || n.includes('acetaminophen') || n.includes('panadol')) return 150;
+            if (n.includes('ibuprofen') || n.includes('brufen') || n.includes('diclofenac') || n.includes('naproxen')) return 200;
+            if (n.includes('vitamin') || n.includes('multivit') || n.includes('supplement') || n.includes('folic')) return 350;
+            if (n.includes('insulin') || n.includes('metformin') || n.includes('losartan') || n.includes('amlodipine')) return 600;
+            if (n.includes('cetirizine') || n.includes('loratadine') || n.includes('piriton') || n.includes('antihistamine')) return 180;
+            return 300; // flat baseline fallback
+        }
+
+        // ── HYBRID API SEARCH ──
+        // Combines our in-house catalog (real, trusted prices) with a live
+        // lookup against the public openFDA drug label API for items we don't
+        // stock locally yet. openFDA results get an estimated price from the
+        // local pricing matrix, clearly disclaimed as unconfirmed.
+        async function searchMedicineHybrid(query) {
+            const grid = document.getElementById('productsGrid');
+            document.getElementById('productCount').textContent = `Searching for "${query}"…`;
+            grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--text-muted);">
+                <p style="font-size:16px;font-weight:600;">🔎 Searching our catalog & medical database…</p>
+            </div>`;
+
+            // 1. In-house catalog matches first — these have real, confirmed prices
+            const localMatches = products.filter(p => {
+                const q = query.toLowerCase();
+                return p.name.toLowerCase().includes(q) || (p.desc || '').toLowerCase().includes(q);
+            });
+            const localNamesLower = localMatches.map(p => p.name.toLowerCase());
+
+            // 2. Public openFDA lookup for anything not already in our catalog
+            let apiResults = [];
+            let apiFailed = false;
+            try {
+                const url = `https://api.fda.gov/drug/label.json?search=openfda.brand_name:"${encodeURIComponent(query)}"+openfda.generic_name:"${encodeURIComponent(query)}"&limit=6`;
+                const res = await fetch(url);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Array.isArray(data.results) && data.results.length > 0) {
+                        apiResults = data.results.map((r, idx) => {
+                            const brand = r.openfda?.brand_name?.[0];
+                            const generic = r.openfda?.generic_name?.[0];
+                            const name = brand || generic || query;
+                            const descSource = (r.purpose && r.purpose[0]) || (r.indications_and_usage && r.indications_and_usage[0]) || 'No description available from medical database.';
+                            const shortDesc = descSource.length > 140 ? descSource.slice(0, 140) + '…' : descSource;
+                            const priceNum = getLocalPriceEstimate(name);
+                            return {
+                                id: `fda-${query}-${idx}`.toLowerCase().replace(/\s+/g, '-'),
+                                name, cat: 'otc', badge: 'Medical DB', badgeClass: 'api',
+                                img: null, desc: shortDesc,
+                                price: `KSh ${priceNum}`, oldPrice: null,
+                                isApiResult: true
+                            };
+                        }).filter(r => !localNamesLower.includes(r.name.toLowerCase()));
+                    } else {
+                        apiFailed = true; // zero results
+                    }
+                } else {
+                    apiFailed = true;
+                }
+            } catch (err) {
+                console.error('openFDA lookup failed:', err.message);
+                apiFailed = true;
+            }
+
+            const combined = [...localMatches, ...apiResults];
+            renderHybridResults(combined, query, apiFailed && localMatches.length === 0);
+        }
+
+        function renderHybridResults(items, query, showStrongFallbackNotice) {
+            const grid = document.getElementById('productsGrid');
+            document.getElementById('productCount').textContent = items.length > 0
+                ? `Showing ${items.length} result${items.length !== 1 ? 's' : ''} for "${query}"`
+                : `No catalog matches for "${query}"`;
+
+            let html = items.map(p => `
+                <div class="prod-card">
+                  <div class="prod-img">
+                    ${p.badge ? `<span class="prod-badge ${p.badgeClass}">${p.badge}</span>` : ''}
+                    ${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<span class=\\'avatar-letter avatar-letter-lg\\'>${firstLetter(p.name)}</span>'">` : `<span class="avatar-letter avatar-letter-lg">${firstLetter(p.name)}</span>`}
+                  </div>
+                  <div class="prod-body">
+                    <div class="prod-cat">${getCatLabel(p.cat)}</div>
+                    <h4>${p.name}</h4>
+                    <p>${p.desc}</p>
+                    <div class="prod-footer">
+                      <div>
+                        <div class="prod-price">${p.oldPrice ? `<s>${p.oldPrice}</s>` : ''}${p.price}</div>
+                        ${p.isApiResult ? `<div class="price-disclaimer">*This is not the official Price subject to official pharmacy confirmation*</div>` : ''}
+                      </div>
+                      <button class="btn-add-cart" id="atc-${p.id}" onclick="addToCart(${JSON.stringify(p).replace(/"/g, '&quot;')})">🛒 Add</button>
+                    </div>
+                  </div>
+                </div>
+            `).join('');
+
+            // Always offer the manual fallback card so a customer can request
+            // anything that didn't show up above — guaranteed, never a dead end.
+            html += renderFallbackCard(query);
+
+            grid.innerHTML = html;
+
+            if (showStrongFallbackNotice) {
+                showCartToast(`No matches found for "${query}" — you can add it manually below`);
+            }
+        }
+
+        function renderFallbackCard(query) {
+            fallbackQty = 1;
+            return `
+                <div class="prod-card fallback-card" id="fallbackCard">
+                  <div class="prod-img"><span style="font-size:40px;">✍️</span></div>
+                  <div class="prod-body">
+                    <div class="prod-cat">Manual Request</div>
+                    <h4>Can't find your specific medicine?</h4>
+                    <p>Add it manually below. Our pharmacist will check the shelves and confirm availability &amp; price.</p>
+                    <input type="text" id="customMedName" class="fallback-input" placeholder="Type exact medicine name…" value="${escapeHtml(query || '')}">
+                    <div class="cart-qty-row" style="justify-content:flex-start;">
+                      <button class="cart-qty-btn" onclick="changeFallbackQty(-1)">−</button>
+                      <span class="cart-qty-num" id="fallbackQtyNum">1</span>
+                      <button class="cart-qty-btn" onclick="changeFallbackQty(1)">+</button>
+                    </div>
+                    <button class="btn-add-cart" onclick="addCustomItem()" style="background:var(--action);">➕ Add Custom Item</button>
+                  </div>
+                </div>
+            `;
+        }
+
+        function changeFallbackQty(delta) {
+            fallbackQty = Math.max(1, fallbackQty + delta);
+            const el = document.getElementById('fallbackQtyNum');
+            if (el) el.textContent = fallbackQty;
+        }
+
+        function addCustomItem() {
+            const input = document.getElementById('customMedName');
+            const name = input ? input.value.trim() : '';
+            if (!name) { showCartToast('⚠️ Please type the medicine name first'); return; }
+            const cart = loadCart();
+            const id = `custom-${Date.now()}`;
+            cart.items.push({
+                id, name: `${name} (Manual Entry)`, price: 'TBD', quantity: fallbackQty,
+                image: null, badge: 'TBD', badgeClass: 'tbd', isCustom: true
+            });
+            saveCart(cart);
+            showCartToast(`✅ "${name}" added — pharmacist will confirm price`);
+            fallbackQty = 1;
+            const qtyEl = document.getElementById('fallbackQtyNum');
+            if (qtyEl) qtyEl.textContent = '1';
+            input.value = '';
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+        }
+
+        function sortProducts(val) { currentSort = val; renderProducts(); }
+
         const CART_KEY = 'cairo_pharmacy_cart';
         const WHATSAPP_NUMBER = '254758833863';
 
         function loadCart() {
-            try {
-                return JSON.parse(localStorage.getItem(CART_KEY)) || { items: [] };
-            } catch { return { items: [] }; }
+            try { return JSON.parse(localStorage.getItem(CART_KEY)) || { items: [] }; }
+            catch { return { items: [] }; }
         }
 
-        function saveCart(cart) {
-            localStorage.setItem(CART_KEY, JSON.stringify(cart));
-            updateCartBadge(cart);
-        }
+        function saveCart(cart) { localStorage.setItem(CART_KEY, JSON.stringify(cart)); updateCartBadge(cart); }
 
         function getCartTotals(cart) {
             const totalItems = cart.items.reduce((s, i) => s + i.quantity, 0);
+            let hasPending = false;
             const subtotalNum = cart.items.reduce((s, i) => {
+                if (String(i.price).toUpperCase() === 'TBD') { hasPending = true; return s; }
                 const num = parseInt(String(i.price).replace(/[^\d]/g, ''), 10) || 0;
                 return s + num * i.quantity;
             }, 0);
-            return { totalItems, subtotal: `KSh ${subtotalNum.toLocaleString()}`, subtotalNum };
+            return { totalItems, subtotal: `KSh ${subtotalNum.toLocaleString()}`, subtotalNum, hasPending };
         }
 
         function updateCartBadge(cart) {
@@ -2376,38 +2808,21 @@
         function addToCart(product) {
             const cart = loadCart();
             const existing = cart.items.find(i => i.id === product.id);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.items.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: 1,
-                    image: product.img || null,
-                    badge: product.badge || null,
-                    badgeClass: product.badgeClass || ''
-                });
-            }
+            if (existing) { existing.quantity += 1; }
+            else { cart.items.push({ id: product.id, name: product.name, price: product.price, quantity: 1, image: product.img || null, badge: product.badge || null, badgeClass: product.badgeClass || '' }); }
             saveCart(cart);
             showCartToast(`✅ ${product.name} added to cart`);
-
             const btn = document.getElementById(`atc-${product.id}`);
             if (btn) {
-                btn.classList.add('added');
-                btn.textContent = '✓ Added';
-                setTimeout(() => {
-                    btn.classList.remove('added');
-                    btn.textContent = '🛒 Add';
-                }, 1400);
+                btn.classList.add('added'); btn.textContent = '✓ Added';
+                setTimeout(() => { btn.classList.remove('added'); btn.textContent = '🛒 Add'; }, 1400);
             }
         }
 
         function removeFromCart(productId) {
             const cart = loadCart();
             cart.items = cart.items.filter(i => i.id !== productId);
-            saveCart(cart);
-            renderCartDrawer();
+            saveCart(cart); renderCartDrawer();
         }
 
         function changeQty(productId, delta) {
@@ -2415,41 +2830,38 @@
             const item = cart.items.find(i => i.id === productId);
             if (!item) return;
             item.quantity = Math.max(1, item.quantity + delta);
-            saveCart(cart);
-            renderCartDrawer();
+            saveCart(cart); renderCartDrawer();
         }
 
         function clearCart() {
             if (!confirm('Clear all items from your cart?')) return;
-            saveCart({ items: [] });
-            renderCartDrawer();
+            clearCartSilently();
+        }
+
+        function clearCartSilently() {
+            saveCart({ items: [] }); renderCartDrawer();
         }
 
         function renderCartDrawer() {
             const cart = loadCart();
             const list = document.getElementById('cartItemsList');
             const footer = document.getElementById('cartFooter');
-            const { totalItems, subtotal, subtotalNum } = getCartTotals(cart);
+            const pendingNote = document.getElementById('cartPendingNote');
+            const { totalItems, subtotal, hasPending } = getCartTotals(cart);
 
             if (cart.items.length === 0) {
-                list.innerHTML = `
-                    <div class="cart-empty">
-                        <div class="cart-empty-icon">🛒</div>
-                        <p>Your cart is empty.<br>Browse our products and add items to get started.</p>
-                    </div>`;
+                list.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Your cart is empty.<br>Browse our products and add items to get started.</p></div>`;
                 footer.style.display = 'none';
             } else {
-                list.innerHTML = cart.items.map(item => `
+                list.innerHTML = cart.items.map(item => {
+                    const isPending = String(item.price).toUpperCase() === 'TBD';
+                    return `
                     <div class="cart-item">
-                        <div class="cart-item-img">
-                            ${item.image
-                        ? `<img src="${item.image}" alt="${item.name}" onerror="this.outerHTML='💊'">`
-                        : '💊'}
-                        </div>
+                        <div class="cart-item-img">${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.outerHTML='<span class=\\'avatar-letter avatar-letter-md\\'>${firstLetter(item.name)}</span>'">` : `<span class="avatar-letter avatar-letter-md">${firstLetter(item.name)}</span>`}</div>
                         <div class="cart-item-info">
                             ${item.badge ? `<span class="cart-item-badge ${item.badgeClass}">${item.badge}</span>` : ''}
                             <div class="cart-item-name" title="${item.name}">${item.name}</div>
-                            <div class="cart-item-price">${item.price}</div>
+                            <div class="cart-item-price"${isPending ? ' style="color:#D97706;font-weight:800;"' : ''}>${isPending ? '⏳ TBD – Pending Quote' : item.price}</div>
                             <div class="cart-qty-row">
                                 <button class="cart-qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
                                 <span class="cart-qty-num">${item.quantity}</span>
@@ -2458,11 +2870,18 @@
                         </div>
                         <button class="cart-remove-btn" onclick="removeFromCart('${item.id}')" title="Remove">🗑️</button>
                     </div>
-                `).join('');
+                `;
+                }).join('');
                 footer.style.display = 'block';
                 document.getElementById('cartItemCount').textContent = totalItems;
                 document.getElementById('cartSubtotalAmt').textContent = subtotal;
                 document.getElementById('cartTotalAmt').textContent = subtotal;
+                if (hasPending) {
+                    pendingNote.style.display = 'block';
+                    pendingNote.innerHTML = '⚠️ <strong>Some items are pending pharmacist confirmation</strong> (TBD/custom entries). They are excluded from the subtotal above — the pharmacy will reply with a quote on WhatsApp.';
+                } else {
+                    pendingNote.style.display = 'none';
+                }
             }
         }
 
@@ -2487,195 +2906,88 @@
             toast._timer = setTimeout(() => toast.classList.remove('show'), 2500);
         }
 
-        /* ── CHECKOUT: requires login ── */
-        /* ══════════════════════════════════════════════════════
-         CHECKOUT WITH DATABASE SAVE
-      ══════════════════════════════════════════════════════ */
+        function buildOrderSummaryText(cart) {
+            const { subtotal, hasPending } = getCartTotals(cart);
+            let lines = '';
+            cart.items.forEach((item, i) => {
+                const isPending = item.badge === 'TBD' || String(item.price).toUpperCase() === 'TBD';
+                lines += `${i + 1}. ${item.name}${item.badge ? ` (${item.badge})` : ''}\n   Qty: ${item.quantity}  ×  ${item.price}${isPending ? '  ⚠️ pending pharmacist quote' : ''}\n`;
+            });
+            lines += `\nSubtotal: ${subtotal}`;
+            if (hasPending) lines += ' (excludes TBD items)';
+            return lines;
+        }
 
-        async function handleCheckout() {
-            const { data } = await supabaseClient.auth.getSession();
-            if (!data?.session) {
-                closeCart();
-                document.getElementById('loginModalOverlay').classList.add('open');
+        function openCheckoutModal() {
+            const cart = loadCart();
+            if (cart.items.length === 0) { showCartToast('Your cart is empty!'); return; }
+            document.getElementById('checkoutSummaryText').value = buildOrderSummaryText(cart);
+            document.getElementById('checkoutModalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModalOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function submitCheckoutOrder() {
+            const cart = loadCart();
+            if (cart.items.length === 0) { showCartToast('Your cart is empty!'); closeCheckoutModal(); return; }
+
+            const name = document.getElementById('checkoutName').value.trim();
+            const phone = document.getElementById('checkoutPhone').value.trim();
+            const address = document.getElementById('checkoutAddress').value.trim();
+
+            if (!name || !phone || !address) {
+                showCartToast('⚠️ Please fill in your name, WhatsApp number, and address');
                 return;
             }
 
-            // Show loading state
-            const checkoutBtn = document.querySelector('.cart-checkout-btn');
-            const originalText = checkoutBtn.textContent;
-            checkoutBtn.textContent = '⏳ Processing...';
-            checkoutBtn.disabled = true;
+            const confirmBtn = document.querySelector('.checkout-modal .modal-btn-primary');
+            const originalText = confirmBtn.textContent;
+            confirmBtn.textContent = '⏳ Sending...';
+            confirmBtn.disabled = true;
 
             try {
-                await saveOrderToDatabase(data.session.user);
-                checkoutBtn.textContent = '✅ Order Sent!';
-                setTimeout(() => {
-                    checkoutBtn.textContent = originalText;
-                    checkoutBtn.disabled = false;
-                }, 2000);
+                const { subtotal, hasPending } = getCartTotals(cart);
+                const datePart = new Date().toISOString().slice(2, 10).replace(/-/g, '');
+                const randomPart = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+                const orderNumber = `ORD-${datePart}-${randomPart}`;
+
+                let msg = `🏥 *Cairo Family Hospital Pharmacy - New Order*\n`;
+                msg += `📋 Order #: ${orderNumber}\n\n`;
+                msg += `*Customer Details:*\n`;
+                msg += `👤 Name: ${name}\n📱 WhatsApp: ${phone}\n📍 Delivery Address: ${address}\n\n`;
+                if (hasPending) msg += `⚠️ *This order includes manual/unpriced items — please check shelf stock and reply with a quote.*\n\n`;
+                msg += `*Order Summary:*\n`;
+                cart.items.forEach((item, i) => {
+                    const isPending = item.badge === 'TBD' || String(item.price).toUpperCase() === 'TBD';
+                    msg += `${i + 1}. *${item.name}*${item.badge ? ` (${item.badge})` : ''}\n   Qty: ${item.quantity} × ${item.price}\n`;
+                    if (isPending) msg += `   ⚠️ *MANUAL CHECK NEEDED — please verify on shelf and quote a price*\n`;
+                });
+                msg += `\n💰 *Subtotal: ${subtotal}*`;
+                if (hasPending) msg += ` _(excludes TBD items — final total pending pharmacist quote)_`;
+                msg += `\n\n📅 Date: ${new Date().toLocaleString()}`;
+
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+
+                showCartToast('✅ Order sent via WhatsApp!');
+                clearCartSilently();
+                closeCart();
+                closeCheckoutModal();
+                document.getElementById('checkoutName').value = '';
+                document.getElementById('checkoutPhone').value = '';
+                document.getElementById('checkoutAddress').value = '';
             } catch (error) {
                 console.error('Checkout error:', error);
                 showCartToast('❌ Failed to place order. Please try again.');
-                checkoutBtn.textContent = originalText;
-                checkoutBtn.disabled = false;
+            } finally {
+                confirmBtn.textContent = originalText;
+                confirmBtn.disabled = false;
             }
         }
 
-        async function saveOrderToDatabase(user) {
-            const cart = loadCart();
-            if (cart.items.length === 0) {
-                showCartToast('Your cart is empty!');
-                return;
-            }
-
-            const { subtotal, subtotalNum } = getCartTotals(cart);
-
-            // Get user profile for name and phone
-            const { data: profile, error: profileError } = await supabaseClient
-                .from('profiles')
-                .select('first_name, last_name, phone')
-                .eq('id', user.id)
-                .single();
-
-            if (profileError) {
-                console.warn('Profile not found, using auth metadata:', profileError);
-            }
-
-            const firstName = profile?.first_name || user.user_metadata?.first_name || 'Customer';
-            const lastName = profile?.last_name || user.user_metadata?.last_name || '';
-            const fullName = `${firstName} ${lastName}`.trim();
-            const phone = profile?.phone || user.user_metadata?.phone || '';
-
-            // Generate order number
-            const datePart = new Date().toISOString().slice(2, 10).replace(/-/g, '');
-            const randomPart = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
-            const orderNumber = `ORD-${datePart}-${randomPart}`;
-
-            // Format items for display
-            const itemsList = cart.items.map(item => ({
-                id: item.id,
-                name: item.name,
-                price: item.price,
-                quantity: item.quantity,
-                badge: item.badge || null,
-                badgeClass: item.badgeClass || ''
-            }));
-
-            const orderData = {
-                order_number: orderNumber,
-                user_id: user.id,
-                customer_name: fullName || user.email,
-                customer_email: user.email,
-                customer_phone: phone || 'Not provided',
-                delivery_address: 'Pending - Customer to provide', // You can add this to your form
-                delivery_option: 'pickup', // Default to pickup
-                items: itemsList,
-                subtotal: subtotal,
-                delivery_fee: 'KSh 0',
-                total: subtotal,
-                special_instructions: '',
-                prescription_uploaded: false,
-                status: 'pending'
-            };
-
-            // Save to database
-            const { data: savedOrder, error } = await supabaseClient
-                .from('orders')
-                .insert([orderData])
-                .select()
-                .single();
-
-            if (error) {
-                console.error('Database save error:', error);
-                // Still send WhatsApp even if DB fails (fallback)
-                sendCartToWhatsApp(user);
-                showCartToast('⚠️ Order placed but couldn\'t save to database. WhatsApp sent!');
-                clearCart();
-                closeCart();
-                return;
-            }
-
-            // Send WhatsApp with order details
-            sendOrderToWhatsApp(user, savedOrder);
-
-            // Clear cart
-            clearCart();
-            closeCart();
-            showCartToast(`✅ Order #${orderNumber} placed successfully!`);
-        }
-
-        function sendOrderToWhatsApp(user, order) {
-            const items = order.items || [];
-            const total = order.total || 'KSh 0';
-            const name = order.customer_name || user?.user_metadata?.first_name || 'Customer';
-
-            let msg = `🏥 *Cairo Family Hospital Pharmacy - New Order*\n`;
-            msg += `📋 Order #: ${order.order_number}\n\n`;
-            msg += `*Customer Details:*\n`;
-            msg += `👤 Name: ${name}\n`;
-            msg += `📱 Phone: ${order.customer_phone || 'Not provided'}\n`;
-            msg += `📧 Email: ${order.customer_email || 'Not provided'}\n`;
-            msg += `📍 Address: ${order.delivery_address || 'Pickup at pharmacy'}\n\n`;
-            msg += `*Order Summary:*\n`;
-            items.forEach((item, i) => {
-                msg += `${i + 1}. *${item.name}*${item.badge ? ` (${item.badge})` : ''}\n`;
-                msg += `   Qty: ${item.quantity} × ${item.price}\n`;
-            });
-            msg += `\n*Totals:*\n`;
-            msg += `💰 Subtotal: ${order.subtotal || total}\n`;
-            msg += `🚚 Delivery: ${order.delivery_fee || 'KSh 0'}\n`;
-            msg += `💳 *Total: ${total}*\n`;
-            msg += `\n📅 Date: ${new Date(order.created_at || Date.now()).toLocaleString()}`;
-
-            window.open(`https://wa.me/${+254758833863}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function goToLogin() {
-            sessionStorage.setItem('loginReturnTo', 'pharmacy.html');
-            window.location.href = 'logins.html';
-        }
-
-        function closeLoginModal() {
-            document.getElementById('loginModalOverlay').classList.remove('open');
-        }
-
-        /* ── USER CHIP ── */
-        async function updateNavUserChip() {
-            const { data } = await supabaseClient.auth.getSession();
-            const chip = document.getElementById('navUserChip');
-            const label = document.getElementById('navUserLabel');
-            if (data?.session) {
-                const firstName = data.session.user?.user_metadata?.first_name ||
-                    data.session.user?.email?.split('@')[0] || 'Me';
-                chip.classList.remove('signed-out');
-                label.textContent = `Hi, ${firstName}`;
-                chip.title = 'Signed in — click to sign out';
-                chip._signedIn = true;
-            } else {
-                chip.classList.add('signed-out');
-                label.textContent = 'Sign In';
-                chip.title = 'Click to sign in';
-                chip._signedIn = false;
-            }
-        }
-
-        function handleUserChipClick() {
-            const chip = document.getElementById('navUserChip');
-            if (chip._signedIn) {
-                if (confirm('Sign out of your account?')) {
-                    supabaseClient.auth.signOut().then(() => updateNavUserChip());
-                }
-            } else {
-                goToLogin();
-            }
-        }
-
-        // Init cart badge on load
-        updateCartBadge(loadCart());
-
-        /* ══════════════════════════════════════════════════════
-           AUXILIARY INTERACTIVE FLOWS
-        ══════════════════════════════════════════════════════ */
         function toggleFaq(el) {
             const item = el.parentElement;
             const isOpen = item.classList.contains('open');
@@ -2683,19 +2995,16 @@
             if (!isOpen) item.classList.add('open');
         }
 
-        function toggleNav() {
-            document.getElementById('navLinks').classList.toggle('open');
-        }
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
 
         function handleRxUpload(input) {
             const file = input.files[0];
             if (file) {
                 const el = document.getElementById('rxFileName');
-                el.textContent = `Selected: ${file.name}`;
-                el.style.display = 'block';
+                el.textContent = `Selected: ${file.name}`; el.style.display = 'block';
                 setTimeout(() => {
                     const msg = `Hello Cairo Family Hospital, I have a prescription to upload for dispensing. File: ${file.name}. Please advise on next steps.`;
-                    window.open(`https://wa.me/254758833863?text=${encodeURIComponent(msg)}`, '_blank');
+                    window.open(`https://wa.me/254791490956?text=${encodeURIComponent(msg)}`, '_blank');
                 }, 600);
             }
         }
@@ -2704,14 +3013,7 @@
             document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
         });
 
-        /* ══════════════════════════════════════════════════════
-           INITIALIZATION
-        ══════════════════════════════════════════════════════ */
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(updateNavUserChip, 300);
-        });
-
-        fetchLiveInventory();
+        loadDefaultInventory();
     </script>
 </body>
 
